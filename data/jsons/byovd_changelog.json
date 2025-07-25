@@ -443,5 +443,56 @@
         }
       ]
     }
+  },
+  {
+    "date": "25-07-2025",
+    "data": {
+      "removed": [],
+      "added": [],
+      "status_changes": [
+        {
+          "name": "driver_a6deeea6.sys",
+          "hash": "a6deeea6607a7da9c8b4087d1424aac6dbbe70831e93c835b5a9e4a80ae59f28",
+          "driver_id": "f694c0e1-b75d-4c41-acbd-a87b72d8abe4",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        },
+        {
+          "name": "elrawdsk.sys",
+          "hash": "4744df6ac02ff0a3f9ad0bf47b15854bbebb73c936dd02f7c79293a2828406f6",
+          "driver_id": "205721b7-b83b-414a-b4b5-8bacb4a37777",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        },
+        {
+          "name": "driver_d9f15d91.sys",
+          "hash": "d9f15d91397d1c8d01b6d6871c4f18f3a85ca85f091a92f4e9221524344ca5fe",
+          "driver_id": "576bb95a-f15e-4a0d-bcee-08791e1504e2",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        },
+        {
+          "name": "elrawdsk.sys",
+          "hash": "5a826b4fa10891cf63aae832fc645ce680a483b915c608ca26cedbb173b1b80a",
+          "driver_id": "205721b7-b83b-414a-b4b5-8bacb4a37777",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        },
+        {
+          "name": "driver_e1123b59.sys",
+          "hash": "e1123b59a801e243a64270d0c6ab1277e5e3afba9c19023807409f53c1b0204b",
+          "driver_id": "11a73c42-26aa-446b-8560-43eecb265091",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        },
+        {
+          "name": "driver_16773074.sys",
+          "hash": "167730744bd7cb117aae9931f81d20cbd2ec6eee480388c53d2fc973ede920ea",
+          "driver_id": "a0f0d0db-15a2-48e4-af39-50967ee8b541",
+          "old_status": "blocked",
+          "new_status": "allowed"
+        }
+      ]
+    }
   }
 ]
