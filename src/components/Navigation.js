@@ -18,7 +18,7 @@ const Navigation = () => {
         <div className="nav-brand" style={{ display: 'flex', alignItems: 'center' }}>
           <Shield size={20} style={{ marginRight: 8, color: "#5ecfff", verticalAlign: "middle" }} />
           <span style={{ color: "#5ecfff", fontWeight: "bold", letterSpacing: "1px" }}>BYOVD</span>
-          <span style={{ color: "#b6e3ff", fontWeight: "normal" }}>Finder</span>
+          <span style={{ color: "#b6e3ff", fontWeight: "normal" }}>Watchdog</span>
         </div>
         <ul className="nav-links">
           <li>
