@@ -17,7 +17,7 @@ Real-time analysis of LOLDrivers against Microsoft's HVCI blocklist. This tool i
 
 ---
 
-## ⚙️ How It Works
+## How It Works
 
 ### 1. `byovd.py`
 - Takes an HVCI blocklist XML file (`SiPolicy_Enforced.xml`) as input
@@ -50,7 +50,7 @@ Real-time analysis of LOLDrivers against Microsoft's HVCI blocklist. This tool i
 
 ---
 
-## 🧠 Why This Matters
+## Why This Matters
 
 HVCI is a security feature in Windows that helps protect against attacks like kernel exploits by verifying the integrity of code running at the kernel level. It blocks drivers that are unsigned or known to be malicious by checking them against an internal blocklist. If a driver is not recognized, it will be blocked to prevent possible exploitation. However, according to [Microsoft](https://learn.microsoft.com/en-us/windows/security/application-security/application-control/app-control-for-business/design/microsoft-recommended-driver-block-rules#microsoft-vulnerable-driver-blocklist), the list is updated once or twice a year, giving us plenty of time to use drivers that haven't yet been blocked.
 
