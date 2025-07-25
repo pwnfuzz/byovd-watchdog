@@ -1,0 +1,94 @@
+name: BYOVD Blocklist Automation
+
+on:
+  schedule:
+    - cron: '0 0 * * 1'  # Every Monday at midnight UTC
+  workflow_dispatch:
+
+jobs:
+  update_blocklist:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install Python dependencies
+        run: |
+          pip install -r scripts/requirements.txt
+
+      - name: Download Microsoft Blocklist ZIP
+        run: |
+          curl -Ls "https://aka.ms/VulnerableDriverBlockList" -o blocklist.zip
+          unzip blocklist.zip
+          find . -name "SiPolicy_Enforced.xml" -exec cp {} ./SiPolicy_Enforced.xml \;
+
+      - name: Compare checksum with existing driverpolicy files
+        id: checksum
+        run: |
+          NEW_SUM=$(sha256sum SiPolicy_Enforced.xml | awk '{print $1}')
+          MATCHED=$(find data/driverpolicy -type f -name "*.xml" -exec sha256sum {} \; | grep "$NEW_SUM" || true)
+
+          if [ -n "$MATCHED" ]; then
+            echo "exists=true" >> $GITHUB_OUTPUT
+          else
+            DATE=$(date +%m_%d_%Y)
+            OUTFILE="data/driverpolicy/SiPolicy_Enforced_${DATE}.xml"
+            cp SiPolicy_Enforced.xml "$OUTFILE"
+            echo "exists=false" >> $GITHUB_OUTPUT
+            echo "newfile=$OUTFILE" >> $GITHUB_OUTPUT
+          fi
+
+      - name: Run byovd.py to generate JSON
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          python3 scripts/byovd.py "${{ steps.checksum.outputs.newfile }}" --json
+
+      - name: Copy byovd_changelog.json for modification
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          cp data/jsons/byovd_changelog.json ./byovd_changelog.json
+
+      - name: Determine latest old JSON result file
+        id: oldfile
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          OLD=$(jq -r '.[] | select(startswith("byovd_finder_results_"))' data/jsons/results_index.json | sort -r | head -n1)
+          echo "oldfile=$OLD" >> $GITHUB_OUTPUT
+
+      - name: Run compare_hvci.py with old and new JSONs
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          NEW_JSON=$(ls byovd_finder_results_*.json | head -n1)
+          python3 scripts/compare_hvci.py "data/jsons/${{ steps.oldfile.outputs.oldfile }}" "$NEW_JSON"
+
+          mv byovd_changelog.json data/jsons/byovd_changelog.json
+          mv "$NEW_JSON" data/jsons/
+
+      - name: Update results_index.json with new filename only
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          NEWFILE=$(ls data/jsons/byovd_finder_results_*.json -t | head -n1)
+          BASENAME=$(basename "$NEWFILE")
+
+          TMP=$(mktemp)
+          jq --arg newfile "$BASENAME" '
+            . + [$newfile] | unique | sort
+          ' data/jsons/results_index.json > "$TMP"
+
+          mv "$TMP" data/jsons/results_index.json
+
+      - name: Commit and push changes
+        if: steps.checksum.outputs.exists == 'false'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+
+          git add data/
+          git commit -m "Automated update for SiPolicy and result JSONs on $(date -u +"%Y-%m-%d")"
+          git push

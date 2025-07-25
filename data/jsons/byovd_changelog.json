@@ -1,0 +1,447 @@
+[
+  {
+    "date": "26-11-2024",
+    "data": {
+      "removed": [],
+      "added": [],
+      "status_changes": [
+        {
+          "name": "kerneld.amd64",
+          "hash": "d330ab003206ce5e9828607562790aa8dd0453f6b7452f5c6053e3c6b6761d25",
+          "driver_id": "3aa6e630-59be-4a15-a30c-aaed4c1edaf0",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "amsdk.sys",
+          "hash": "6f55c148bb27c14408cf0f16f344abcd63539174ac855e510a42d78cfaec451c",
+          "driver_id": "a285591e-ad3c-46a3-a648-c58589ff5efc",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AODDriver.sys",
+          "hash": "f4dc11b7922bf2674ca9673638e7fe4e26aceb0ebdc528e6d10c8676e555d7b2",
+          "driver_id": "a3c52cbe-90ca-432c-9520-761b60e7d9cb",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "dellinstrumentation.sys",
+          "hash": "bc2606740e4648c3732541db929f2e02ea8567520d35de57c671e93c71e632f3",
+          "driver_id": "86b9c8d6-9c59-4fd4-befd-ab9a36a19e36",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "IOMap64.sys",
+          "hash": "ea85bbe63d6f66f7efee7007e770af820d57f914c7f179c5fee3ef2845f19c41",
+          "driver_id": "f4990bdd-8821-4a3c-a11a-4651e645810c",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "viragt.sys",
+          "hash": "2a6212f3b68a6f263e96420b3607b31cfdfe51afff516f3c87d27bf8a89721e8",
+          "driver_id": "7edb5602-239f-460a-89d6-363ff1059765",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "PDFWKRNL.sys",
+          "hash": "0cf84400c09582ee2911a5b1582332c992d1cd29fcf811cb1dc00fcd61757db0",
+          "driver_id": "fded7e63-0470-40fe-97ed-aa83fd027bad",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "viragt.sys",
+          "hash": "e4eca7db365929ff7c5c785e2eab04ef8ec67ea9edcf7392f2b74eccd9449148",
+          "driver_id": "7edb5602-239f-460a-89d6-363ff1059765",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_IA64.sys",
+          "hash": "405472a8f9400a54bb29d03b436ccd58cfd6442fe686f6d2ed4f63f002854659",
+          "driver_id": "0f21a584-6ace-4242-82cb-9766cea6973a",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "PDFWKRNL.sys",
+          "hash": "f190919f1668652249fa23d8c0455acbde9d344089fde96566239b1a18b91da2",
+          "driver_id": "fded7e63-0470-40fe-97ed-aa83fd027bad",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_IA64.sys",
+          "hash": "22418016e980e0a4a2d01ca210a17059916a4208352c1018b0079ccb19aaf86a",
+          "driver_id": "0f21a584-6ace-4242-82cb-9766cea6973a",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "probmon.sys",
+          "hash": "023d722cbbdd04e3db77de7e6e3cfeabcef21ba5b2f04c3f3a33691801dd45eb",
+          "driver_id": "3bf3fd5d-dee3-42da-b8be-6a0b8b7bc88c",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "viragt.sys",
+          "hash": "d0e25b879d830e4f867b09d6540a664b6f88bad353cd14494c33b31a8091f605",
+          "driver_id": "7edb5602-239f-460a-89d6-363ff1059765",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "elrawdsk.sys",
+          "hash": "5a826b4fa10891cf63aae832fc645ce680a483b915c608ca26cedbb173b1b80a",
+          "driver_id": "205721b7-b83b-414a-b4b5-8bacb4a37777",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AODDriver.sys",
+          "hash": "070ff602cccaaef9e2b094e03983fd7f1bf0c0326612eb76593eabbf1bda9103",
+          "driver_id": "a3c52cbe-90ca-432c-9520-761b60e7d9cb",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "stdcdrvws64.sys",
+          "hash": "70afdc0e11db840d5367afe53c35d9642c1cf616c7832ab283781d085988e505",
+          "driver_id": "dc3fdbd3-601a-4d2a-bf34-d2e84c6ff1d3",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_IA64.sys",
+          "hash": "b1334a71cc73b3d0c54f62d8011bec330dfc355a239bf94a121f6e4c86a30a2e",
+          "driver_id": "0f21a584-6ace-4242-82cb-9766cea6973a",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "driver_16773074.sys",
+          "hash": "167730744bd7cb117aae9931f81d20cbd2ec6eee480388c53d2fc973ede920ea",
+          "driver_id": "a0f0d0db-15a2-48e4-af39-50967ee8b541",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "74a846c61adc53692d3040aff4c1916f32987ad72b07fe226e9e7dbeff1036c4",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "sfdrvx64.sys",
+          "hash": "88fb0a846f52c3b680c695cd349bf56151a53a75a07b8b0b4fe026ab8aa0a9af",
+          "driver_id": "5a03dc5a-115d-4d6f-b5b5-685f4c014a69",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "phymem_ext64.sys",
+          "hash": "793a26c5c4c154a40f84c3d3165deb807062b26796acaae94b72f453e95230d5",
+          "driver_id": "2b918b1a-badb-4a85-9214-961607b21219",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "IoAccess.sys",
+          "hash": "b9e0c2a569ab02742fa3a37846310a1d4e46ba2bfd4f80e16f00865fc62690cb",
+          "driver_id": "c08c03ff-a7b7-4282-a9fc-265ae88dc244",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "d5586dc1e61796a9ae5e5d1ced397874753056c3df2eb963a8916287e1929a71",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "af095de15a16255ca1b2c27dad365dff9ac32d2a75e8e288f5a1307680781685",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "psmounterex.sys",
+          "hash": "4e99d454a56845bb0e622cfd68b895b7868ef7e8a43424e5b7b803f5a2d25eca",
+          "driver_id": "0f64bf7a-2ef2-45ea-af7d-4e7c87d98777",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AsUpIO.sys",
+          "hash": "b9a4e40a5d80fedd1037eaed958f9f9efed41eb01ada73d51b5dcd86e27e0cbf",
+          "driver_id": "8d97bb7f-e009-4dc7-ab9d-fde293e679dc",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "driver_e1123b59.sys",
+          "hash": "e1123b59a801e243a64270d0c6ab1277e5e3afba9c19023807409f53c1b0204b",
+          "driver_id": "11a73c42-26aa-446b-8560-43eecb265091",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "aa9ab1195dc866270e984f1bed5e1358d6ef24c515dfdb6c2a92d1e1b94bf608",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "phymem_ext64.sys",
+          "hash": "fc3e8554602c476e2edfa92ba4f6fb2e5ba0db433b9fbd7d8be1036e454d2584",
+          "driver_id": "2b918b1a-badb-4a85-9214-961607b21219",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AsrDrv106.sys",
+          "hash": "3943a796cc7c5352aa57ccf544295bfd6fb69aae147bc8235a00202dc6ed6838",
+          "driver_id": "6a50e368-1120-434b-9232-1a0702c80437",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "driver_a6deeea6.sys",
+          "hash": "a6deeea6607a7da9c8b4087d1424aac6dbbe70831e93c835b5a9e4a80ae59f28",
+          "driver_id": "f694c0e1-b75d-4c41-acbd-a87b72d8abe4",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "SSPORT.sys",
+          "hash": "7cc9ba2df7b9ea6bb17ee342898edd7f54703b93b6ded6a819e83a7ee9f938b4",
+          "driver_id": "c854b612-0b9f-4fc3-a7b8-a93bed7a291e",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "elrawdsk.sys",
+          "hash": "4744df6ac02ff0a3f9ad0bf47b15854bbebb73c936dd02f7c79293a2828406f6",
+          "driver_id": "205721b7-b83b-414a-b4b5-8bacb4a37777",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "SeasunProtect.sys",
+          "hash": "507b07b0dc0e638b65b4a4d11a462b35439c746d42337b9888927bf994176102",
+          "driver_id": "3a9ea9a6-e5e3-439a-b892-1f78dd990099",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "kerneld.amd64",
+          "hash": "33bc9a17a0909e32a3ae7e6f089b7f050591dd6f3f7a8172575606bec01889ef",
+          "driver_id": "3aa6e630-59be-4a15-a30c-aaed4c1edaf0",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "phymem_ext64.sys",
+          "hash": "4ec7af309a9359c332d300861655faeceb68bb1cd836dd66d10dd4fac9c01a28",
+          "driver_id": "2b918b1a-badb-4a85-9214-961607b21219",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_IA64.sys",
+          "hash": "7f190f6e5ab0edafd63391506c2360230af4c2d56c45fc8996a168a1fc12d457",
+          "driver_id": "0f21a584-6ace-4242-82cb-9766cea6973a",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "amifldrv64.sys",
+          "hash": "5f487829527802983d5c120e3b99f3cf89333ca14f5e49ac32df0798cfb1f7aa",
+          "driver_id": "34fa6ba4-dc7c-4fd6-b947-8a0bb8ebd031",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "rtkio.sysrtkio64.sysrtkiow8x64.sysrtkiow10x64.sys",
+          "hash": "a6f7897cd08fe9de5e902bb204ff87215584a008f458357d019a50d6139ca4af",
+          "driver_id": "8d3f27bd-c3fd-48d0-913a-e2caa6fbd025",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "d8459f7d707c635e2c04d6d6d47b63f73ba3f6629702c7a6e0df0462f6478ae2",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "driver_d9f15d91.sys",
+          "hash": "d9f15d91397d1c8d01b6d6871c4f18f3a85ca85f091a92f4e9221524344ca5fe",
+          "driver_id": "576bb95a-f15e-4a0d-bcee-08791e1504e2",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "kerneld.amd64",
+          "hash": "b074caef2fbf7e1dc8870edccb65254858d95836f466b4e9e6ca398bf7a27aa3",
+          "driver_id": "3aa6e630-59be-4a15-a30c-aaed4c1edaf0",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "windbg.sys",
+          "hash": "06c5ebd0371342d18bc81a96f5e5ce28de64101e3c2fd0161d0b54d8368d2f1f",
+          "driver_id": "da7314dc-6cf1-4d74-a0d1-796fc08944f8",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "viragt64.sys",
+          "hash": "18deed37f60b6aa8634dda2565a0485452487d7bce88afb49301a7352db4e506",
+          "driver_id": "7edb5602-239f-460a-89d6-363ff1059765",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "viragt.sys",
+          "hash": "263e8f1e20612849aea95272da85773f577fd962a7a6d525b53f43407aa7ad24",
+          "driver_id": "7edb5602-239f-460a-89d6-363ff1059765",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "29e0062a017a93b2f2f5207a608a96df4d554c5de976bd0276c2590a03bd3e94",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AsIO.sys",
+          "hash": "dde6f28b3f7f2abbee59d4864435108791631e9cb4cdfb1f178e5aa9859956d8",
+          "driver_id": "2651f5c4-d9e1-4b06-92be-e9e7313f87c4",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "CITMDRV_AMD64.sys",
+          "hash": "9790a7b9d624b2b18768bb655dda4a05a9929633cef0b1521e79e40d7de0a05b",
+          "driver_id": "f3215c19-8053-458c-81a5-90a74c5d2e6d",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "DirectIo.sys",
+          "hash": "673b63b67345773cd6d66f6adcf2c753e2d949232bff818d5bb6e05786538d92",
+          "driver_id": "62e2a967-1f03-4225-a325-122b109208f3",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "DBUtilDrv2.sys",
+          "hash": "71fe5af0f1564dc187eea8d59c0fbc897712afa07d18316d2080330ba17cf009",
+          "driver_id": "bb808089-5857-4df2-8998-753a7106cb44",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "windbg.sys",
+          "hash": "fa9abb3e7e06f857be191a1e049dd37642ec41fb2520c105df2227fcac3de5d5",
+          "driver_id": "da7314dc-6cf1-4d74-a0d1-796fc08944f8",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "DirectIo.sys",
+          "hash": "4422851a0a102f654e95d3b79c357ae3af1b096d7d1576663c027cfbc04abaf9",
+          "driver_id": "ce2d41fd-908f-414c-b6b5-338298f425b8",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "stdcdrv64.sys",
+          "hash": "37022838c4327e2a5805e8479330d8ff6f8cd3495079905e867811906c98ea20",
+          "driver_id": "f33c2e80-7b01-416b-821a-ed06db4b6511",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "DBUtilDrv2.sys",
+          "hash": "2e6b339597a89e875f175023ed952aaac64e9d20d457bbc07acf1586e7fe2df8",
+          "driver_id": "bb808089-5857-4df2-8998-753a7106cb44",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        }
+      ]
+    }
+  },
+  {
+    "date": "23-12-2024",
+    "data": {
+      "removed": [],
+      "added": [],
+      "status_changes": [
+        {
+          "name": "dbk64.sys",
+          "hash": "626fae47811450d080d08c3d9fd890aa64bfecdc45eacd42a40850c1833c8763",
+          "driver_id": "1524a54d-520d-4fa4-a7d5-aaaa066fbfc4",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "TdkLib64.sys",
+          "hash": "cbd4f66ae09797fcd1dc943261a526710acc8dd4b24e6f67ed4a1fce8b0ae31c",
+          "driver_id": "933f5671-e995-4976-8392-52d34dcd4e05",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "kavservice.bin",
+          "hash": "e055fdfb914e3da936eb7745acb665f50346df9abac597cf43d487262a6a12d5",
+          "driver_id": "77157886-00f9-4f6e-b217-d896813b630f",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "TdkLib64.sys",
+          "hash": "5be106b92424b12865338b3f541b3c244dce9693fe15f763316f0c6d6fc073ee",
+          "driver_id": "933f5671-e995-4976-8392-52d34dcd4e05",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "TdkLib64.sys",
+          "hash": "7277130afa0b1506998d7bc58567b0d83f52a27175f4c7c4a7186347095fceed",
+          "driver_id": "933f5671-e995-4976-8392-52d34dcd4e05",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AsIO3_64.sys",
+          "hash": "fa875178ae2d7604d027510b0d0a7e2d9d675e10a4c9dda2d927ee891e0bcb91",
+          "driver_id": "2651f5c4-d9e1-4b06-92be-e9e7313f87c4",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        },
+        {
+          "name": "AsIO3_64.sys",
+          "hash": "7236c8ff33c0e5cfa956778aa7303f1979f3bf709c361399fa1ce101b7e355b8",
+          "driver_id": "2651f5c4-d9e1-4b06-92be-e9e7313f87c4",
+          "old_status": "allowed",
+          "new_status": "blocked"
+        }
+      ]
+    }
+  }
+]
