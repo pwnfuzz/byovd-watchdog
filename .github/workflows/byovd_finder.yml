@@ -2,7 +2,7 @@ name: BYOVD Blocklist Automation
 
 on:
   schedule:
-    - cron: '0 0 * * 1'  # Every Monday at midnight UTC
+    - cron: '0 0 * * *'  # Every day at midnight UTC
   workflow_dispatch:
 
 jobs:
@@ -21,6 +21,42 @@ jobs:
       - name: Install Python dependencies
         run: |
           pip install -r scripts/requirements.txt
+
+      - name: Check for new loldrivers and update changelog
+        id: loldrivers
+        run: |
+          # Download current loldrivers JSON
+          curl -s "https://www.loldrivers.io/api/drivers.json" -o current_loldrivers.json
+          CURRENT_HASH=$(md5sum current_loldrivers.json | awk '{print $1}')
+          
+          # Check if previous file exists and get its hash
+          if [ -f "data/jsons/loldrivers_previous.json" ]; then
+            PREVIOUS_HASH=$(md5sum data/jsons/loldrivers_previous.json | awk '{print $1}')
+          else
+            PREVIOUS_HASH=""
+          fi
+          
+          # Compare hashes
+          if [ "$CURRENT_HASH" != "$PREVIOUS_HASH" ]; then
+            echo "loldrivers_updated=true" >> $GITHUB_OUTPUT
+            echo "Hash changed, running loldrivers script..."
+            python3 scripts/loldrivers_changelog.py
+          else
+            echo "loldrivers_updated=false" >> $GITHUB_OUTPUT
+            echo "No changes in loldrivers.io"
+          fi
+          
+          # Clean up
+          rm -f current_loldrivers.json
+
+      - name: Commit loldrivers changes if any
+        if: steps.loldrivers.outputs.loldrivers_updated == 'true'
+        run: |
+          git config user.name "github-actions"
+          git config user.email "github-actions@users.noreply.github.com"
+          git add data/jsons/byovd_changelog.json data/jsons/loldrivers_previous.json
+          git commit -m "Automated loldrivers changelog update on $(date -u +"%Y-%m-%d")" || echo "No changes to commit"
+          git push
 
       - name: Download Microsoft Blocklist ZIP
         run: |

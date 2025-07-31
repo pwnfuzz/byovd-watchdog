@@ -11,9 +11,10 @@ const getDriverLink = (driver) =>
 const getSHA256 = (driver) => driver.hash || driver.sha256 || driver.sha1 || driver.md5 || 'N/A';
 
 const getStatus = (driver, section) => {
+  if (driver.source === 'loldrivers') return 'New driver from loldrivers.io';
   if (driver.new_status) return driver.new_status;
-  if (section === 'added') return 'allowed';
-  if (section === 'removed') return 'blocked';
+  if (section === 'added') return 'Allowed';
+  if (section === 'removed') return 'Blocked';
   return 'unknown';
 };
 
