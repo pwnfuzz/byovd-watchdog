@@ -496,42 +496,42 @@
     }
   },
   {
-    "date": "31-07-2025",
+    "date": "26-03-2025",
     "data": {
       "added": [
         {
           "name": "8492937_2_Driver.sys",
-          "hash": null,
+          "hash": "d51d00127ddd4551fb1eafe14255715014944ad4c60eabb9e568c3ff98ff4a2e",
           "driver_id": "c95a796a-a8f6-4cfa-bc42-4936ecb59091",
           "source": "loldrivers"
         },
         {
           "name": "ACPIx86.sys",
-          "hash": null,
+          "hash": "c5400ae731464079590aad494bcf2e0799bb4281ea49baa9580ab2f1ee207861",
           "driver_id": "fd6c52b1-aeaa-4d89-8051-91acc68c3270",
           "source": "loldrivers"
         },
         {
           "name": "CSAgent.sys",
-          "hash": null,
+          "hash": "b2ff9ef50ae037bb003d7157ea8da008a48f715a78c644b5f027b070bf5eb049",
           "driver_id": "ca6455d1-b06e-496c-be33-f89c41b27540",
           "source": "loldrivers"
         },
         {
           "name": "CSAgent.sys",
-          "hash": null,
+          "hash": "6a2a0f9c56ee9bf7b62e1d4e1929d13046cd78a93d8c607fe4728cc5b1e8d050",
           "driver_id": "9974b134-7fee-4c7a-9b0d-38b3b2d7e957",
           "source": "loldrivers"
         },
         {
           "name": "isodrivep64.sys",
-          "hash": null,
+          "hash": "1e42c8cb410a7ed653cfe62bbd8cf191f31a47337fe1ffcc35232d03f2da05ef",
           "driver_id": "0144dbef-1da8-406c-8e35-7afee57dc471",
           "source": "loldrivers"
         },
         {
           "name": "isodrivep64.sys",
-          "hash": null,
+          "hash": "c619a7fbb27940428b80129e0fa2d976fce52f93ab37667d2ca01330c6c561a5",
           "driver_id": "bd6490c2-20ea-441e-803c-bc3b957dae4c",
           "source": "loldrivers"
         }

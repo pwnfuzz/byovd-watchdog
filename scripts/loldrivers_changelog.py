@@ -79,7 +79,18 @@ def main():
         else:
             name = get_driver_key(driver)
         # Try to get a hash
-        hashval = driver.get("SHA256") or driver.get("sha256") or driver.get("SHA1") or driver.get("sha1") or driver.get("MD5") or driver.get("md5")
+        hashval = (
+            driver.get("SHA256") or driver.get("sha256") or
+            driver.get("SHA1") or driver.get("sha1") or
+            driver.get("MD5") or driver.get("md5")
+        )
+        if not hashval and "KnownVulnerableSamples" in driver and driver["KnownVulnerableSamples"]:
+            sample = driver["KnownVulnerableSamples"][0]
+            hashval = (
+                sample.get("SHA256") or sample.get("sha256") or
+                sample.get("SHA1") or sample.get("sha1") or
+                sample.get("MD5") or sample.get("md5")
+            )
         entry["data"]["added"].append({
             "name": name,
             "hash": hashval,

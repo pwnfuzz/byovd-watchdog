@@ -11,10 +11,10 @@ const getDriverLink = (driver) =>
 const getSHA256 = (driver) => driver.hash || driver.sha256 || driver.sha1 || driver.md5 || 'N/A';
 
 const getStatus = (driver, section) => {
-  if (driver.source === 'loldrivers') return 'New driver from loldrivers.io';
+  if (driver.source === 'loldrivers') return 'New Driver Added to Loldrivers';
   if (driver.new_status) return driver.new_status;
-  if (section === 'added') return 'Allowed';
-  if (section === 'removed') return 'Blocked';
+  if (section === 'added') return 'allowed';
+  if (section === 'removed') return 'blocked';
   return 'unknown';
 };
 
@@ -120,17 +120,17 @@ const Changelog = () => {
                         </td>
                         <td style={{ padding: '6px 8px', minWidth: 80 }}>
                           <span style={{
-                            color: getStatus(driver, driver._section) === 'allowed' ? '#5ecfff' : '#ff4444',
+                            color: getStatus(driver, driver._section) === 'Allowed' ? '#5ecfff' : '#ff4444',
                             fontWeight: 600,
                             fontSize: '0.98rem',
                             border: '1px solid',
-                            borderColor: getStatus(driver, driver._section) === 'allowed' ? '#5ecfff' : '#ff4444',
+                            borderColor: getStatus(driver, driver._section) === 'Allowed' ? '#5ecfff' : '#ff4444',
                             borderRadius: 4,
                             padding: '2px 10px',
                             textAlign: 'center',
                             background: 'rgba(94,207,255,0.07)'
                           }}>
-                            {getStatus(driver, driver._section)}
+                            {getStatus(driver, driver._section).charAt(0).toUpperCase() + getStatus(driver, driver._section).slice(1)}
                           </span>
                         </td>
                         <td style={{ color: '#8fa6c9', fontSize: '0.92rem', padding: '6px 8px', wordBreak: 'break-all', minWidth: 320 }}>
