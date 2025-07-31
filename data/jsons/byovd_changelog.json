@@ -494,5 +494,50 @@
         }
       ]
     }
+  },
+  {
+    "date": "31-07-2025",
+    "data": {
+      "added": [
+        {
+          "name": "8492937_2_Driver.sys",
+          "hash": null,
+          "driver_id": "c95a796a-a8f6-4cfa-bc42-4936ecb59091",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ACPIx86.sys",
+          "hash": null,
+          "driver_id": "fd6c52b1-aeaa-4d89-8051-91acc68c3270",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CSAgent.sys",
+          "hash": null,
+          "driver_id": "ca6455d1-b06e-496c-be33-f89c41b27540",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CSAgent.sys",
+          "hash": null,
+          "driver_id": "9974b134-7fee-4c7a-9b0d-38b3b2d7e957",
+          "source": "loldrivers"
+        },
+        {
+          "name": "isodrivep64.sys",
+          "hash": null,
+          "driver_id": "0144dbef-1da8-406c-8e35-7afee57dc471",
+          "source": "loldrivers"
+        },
+        {
+          "name": "isodrivep64.sys",
+          "hash": null,
+          "driver_id": "bd6490c2-20ea-441e-803c-bc3b957dae4c",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
