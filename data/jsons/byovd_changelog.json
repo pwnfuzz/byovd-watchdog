@@ -539,5 +539,32 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "29-08-2025",
+    "data": {
+      "added": [
+        {
+          "name": "cyvrlpc.sys",
+          "hash": "05f8f514d1367aca856564af5443a75f47d22a30ce63f0b024a41e6b9553a527",
+          "driver_id": "85f8ad5b-c5aa-468b-99f3-4b0aacfaa724",
+          "source": "loldrivers"
+        },
+        {
+          "name": "927e3aef03a8355d236230cace376b3023480a40c5ac08453c07dab343dd1f11",
+          "hash": "927e3aef03a8355d236230cace376b3023480a40c5ac08453c07dab343dd1f11",
+          "driver_id": "9c4e45c8-8f99-40b4-bb73-2e1cfa813034",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CSAgent.sys",
+          "hash": "efb642ad3fab4a2e6cb4de829b60e04dd0d9ae7c2b4cf544de28c38f978b4136",
+          "driver_id": "8e673a36-4f16-4f4c-acf7-ca95bc586384",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
