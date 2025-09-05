@@ -11,7 +11,7 @@ const getDriverLink = (driver) =>
 const getSHA256 = (driver) => driver.hash || driver.sha256 || driver.sha1 || driver.md5 || 'N/A';
 
 const getStatus = (driver, section) => {
-  if (driver.source === 'loldrivers') return 'New Driver Added to Loldrivers';
+  if (driver.source === 'loldrivers') return 'New to Loldrivers';
   if (driver.new_status) return driver.new_status;
   if (section === 'added') return 'allowed';
   if (section === 'removed') return 'blocked';
@@ -108,27 +108,31 @@ const Changelog = () => {
                   <tbody>
                     {drivers.map((driver, i) => (
                       <tr key={i} style={{ borderBottom: '1px solid #23272f' }}>
-                        <td style={{ padding: '6px 8px', minWidth: 180 }}>
+                        <td style={{ padding: '6px 8px', minWidth: 180, maxWidth: 300, wordWrap: 'break-word', overflowWrap: 'break-word' }}>
                           <a
                             href={getDriverLink(driver)}
                             target="_blank"
                             rel="noopener noreferrer"
-                            style={{ color: '#5ecfff', textDecoration: 'underline', fontWeight: 'bold', fontSize: '1.08rem' }}
+                            style={{ color: '#5ecfff', textDecoration: 'underline', fontWeight: 'bold', fontSize: '1.08rem', wordWrap: 'break-word', overflowWrap: 'break-word' }}
                           >
                             {driver.name}
                           </a>
                         </td>
                         <td style={{ padding: '6px 8px', minWidth: 80 }}>
                           <span style={{
-                            color: getStatus(driver, driver._section) === 'Allowed' ? '#5ecfff' : '#ff4444',
+                            color: getStatus(driver, driver._section) === 'allowed' ? '#5ecfff' : '#ff4444',
                             fontWeight: 600,
-                            fontSize: '0.98rem',
+                            fontSize: '0.85rem',
                             border: '1px solid',
-                            borderColor: getStatus(driver, driver._section) === 'Allowed' ? '#5ecfff' : '#ff4444',
+                            borderColor: getStatus(driver, driver._section) === 'allowed' ? '#5ecfff' : '#ff4444',
                             borderRadius: 4,
-                            padding: '2px 10px',
+                            padding: '3px 8px',
                             textAlign: 'center',
-                            background: 'rgba(94,207,255,0.07)'
+                            background: getStatus(driver, driver._section) === 'allowed' ? 'rgba(94,207,255,0.07)' : 'rgba(255,68,68,0.07)',
+                            display: 'inline-block',
+                            whiteSpace: 'nowrap',
+                            textTransform: 'uppercase',
+                            letterSpacing: '0.5px'
                           }}>
                             {getStatus(driver, driver._section).charAt(0).toUpperCase() + getStatus(driver, driver._section).slice(1)}
                           </span>

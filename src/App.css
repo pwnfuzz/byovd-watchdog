@@ -466,6 +466,30 @@ body {
   border: 1px solid #ffc107;
 }
 
+/* Changelog table responsive styles */
+.changelog table {
+  table-layout: fixed;
+  width: 100%;
+}
+
+.changelog th:first-child,
+.changelog td:first-child {
+  width: 30%;
+  max-width: 300px;
+}
+
+.changelog th:nth-child(2),
+.changelog td:nth-child(2) {
+  width: 20%;
+  min-width: 140px;
+  text-align: center;
+}
+
+.changelog th:last-child,
+.changelog td:last-child {
+  width: 50%;
+}
+
 /* Responsive design */
 @media (max-width: 768px) {
   .nav {
@@ -515,6 +539,28 @@ body {
   
   .change-status {
     align-self: flex-end;
+  }
+  
+  /* Make changelog table responsive on mobile */
+  .changelog table {
+    font-size: 0.9rem;
+  }
+  
+  .changelog th:first-child,
+  .changelog td:first-child {
+    width: 35%;
+    max-width: 200px;
+  }
+  
+  .changelog th:nth-child(2),
+  .changelog td:nth-child(2) {
+    width: 25%;
+    min-width: 120px;
+  }
+  
+  .changelog th:last-child,
+  .changelog td:last-child {
+    width: 40%;
   }
 }
 
