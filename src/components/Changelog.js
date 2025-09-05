@@ -101,7 +101,7 @@ const Changelog = () => {
                   <thead>
                     <tr style={{ borderBottom: '1px solid #2e3440' }}>
                       <th style={{ textAlign: 'left', color: '#b6e3ff', fontWeight: 600, padding: '6px 8px' }}>Driver Name</th>
-                      <th style={{ textAlign: 'left', color: '#b6e3ff', fontWeight: 600, padding: '6px 8px' }}>Status</th>
+                      <th style={{ textAlign: 'left', color: '#b6e3ff', fontWeight: 600, padding: '6px 80px' }}>Status</th>
                       <th style={{ textAlign: 'left', color: '#b6e3ff', fontWeight: 600, padding: '6px 8px' }}>SHA256 Hash</th>
                     </tr>
                   </thead>
