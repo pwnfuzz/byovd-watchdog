@@ -566,5 +566,98 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "08-01-2026",
+    "data": {
+      "added": [
+        {
+          "name": "ksapi.sys",
+          "hash": "1cd219f58b249a2e4f86553bdd649c73785093e22c87170798dae90f193240af",
+          "driver_id": "fb36ebc6-fdc5-42eb-929b-a07e00c5b9db",
+          "source": "loldrivers"
+        },
+        {
+          "name": "wamsdk.sys",
+          "hash": "5af1dae21425dda8311a2044209c308525135e1733eeff5dd20649946c6e054c",
+          "driver_id": "9cb4b2fa-67fb-4415-a064-7da7bc47e105",
+          "source": "loldrivers"
+        },
+        {
+          "name": "K7RKScan.sys",
+          "hash": "b16e217cdca19e00c1b68bdfb28ead53b20adeabd6edcd91542f9fbf48942877",
+          "driver_id": "bd580aba-a804-4afc-adb3-b8ce342c78f6",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ksapi.sys",
+          "hash": "26ed45461e62d733f33671bfd0724399d866ee7606f3f112c90896ce8355392e",
+          "driver_id": "7f80bb6e-bbf6-46dd-b77d-ecef24f1c2cd",
+          "source": "loldrivers"
+        },
+        {
+          "name": "BdApiUtil.sys",
+          "hash": "32198295d2a2700b9895fff999c2b233f9befb0bc175815ec4b71ee926b6edfc",
+          "driver_id": "708650ed-c497-48be-97bc-9edd48cf2a1a",
+          "source": "loldrivers"
+        },
+        {
+          "name": "K7RKScan.sys",
+          "hash": "5c6ce55a85f5d4640bd1485a72d0812bc4f5188ee966c5fe334248a7175d9040",
+          "driver_id": "9f88300d-e607-4e50-8626-fd799439e049",
+          "source": "loldrivers"
+        },
+        {
+          "name": "NSecKrnl.sys",
+          "hash": "206f27ae820783b7755bca89f83a0fe096dbb510018dd65b63fc80bd20c03261",
+          "driver_id": "c1143cd9-a709-4323-9678-2117285d1b47",
+          "source": "loldrivers"
+        },
+        {
+          "name": "throttlestop.sys",
+          "hash": "16f83f056177c4ec24c7e99d01ca9d9d6713bd0497eeedb777a3ffefa99c97f0",
+          "driver_id": "6e0786f5-2168-40a8-a068-e261c4eb10e7",
+          "source": "loldrivers"
+        },
+        {
+          "name": "bd1f381e5a3db22e88776b7873d4d2835e9a1ec620571d2b1da0c58f81c84a56",
+          "hash": "bd1f381e5a3db22e88776b7873d4d2835e9a1ec620571d2b1da0c58f81c84a56",
+          "driver_id": "73bd234a-6c4f-4304-9e7d-5bc7a3f263e2",
+          "source": "loldrivers"
+        },
+        {
+          "name": "changsha",
+          "hash": "06eccd102c9105957773b32538943531d9c39d0a504ceb3b9b155e97e3b0b134",
+          "driver_id": "636d30fd-2b95-4dc2-a413-be0e43d1482c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "amsdk.sys",
+          "hash": "12b3d8bc5cc1ea6e2acd741d8a80f56cf2a0a7ebfa0998e3f0743fcf83fabb9e",
+          "driver_id": "981210cb-8b84-4d37-b46e-b71059b8c438",
+          "source": "loldrivers"
+        },
+        {
+          "name": "BdApiUtil64.sys",
+          "hash": "47ec51b5f0ede1e70bd66f3f0152f9eb536d534565dbb7fcc3a05f542dbe4428",
+          "driver_id": "f8ed41ef-18f0-441c-99b8-def062214d0e",
+          "source": "loldrivers"
+        },
+        {
+          "name": "burntcigar.sys",
+          "hash": "7c5329b842cc3eaf1ec6c11b00e09a8c5e38ad14134b40a8bae3eda0a167a919",
+          "driver_id": "bb20edec-ecd4-4acd-9ad2-e4559748b336",
+          "source": "loldrivers"
+        },
+        {
+          "name": "SmSerl64.sys",
+          "hash": "e599200c44eca5eb06475f90f67a58723b30c3c2887bd12ed7c31ff1042382ea",
+          "driver_id": "09c46890-5aa1-4122-962e-7ed94754e710",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
