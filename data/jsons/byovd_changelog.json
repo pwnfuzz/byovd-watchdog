@@ -659,5 +659,98 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "07-04-2026",
+    "data": {
+      "added": [
+        {
+          "name": "DriversCloud_amd64.sys",
+          "hash": "2bc72d11fa0beda25dc1dbc372967db49bd3c3a3903913f0877bff6792724dfe",
+          "driver_id": "b3f7c8d2-4a19-4e5b-9d6c-2f8e1a3b7c04",
+          "source": "loldrivers"
+        },
+        {
+          "name": "TVicPort64.sys",
+          "hash": "9C9AB56C8BCF5EC958E7C2346F23A3027F69ABDF8AF923B591518EEE64AD98AD",
+          "driver_id": "b4f3a1c2-e8d7-4f92-a301-5c6d9e0b1a2f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "rspot.sys",
+          "hash": "ea8c8f834523886b07d87e85e24f124391d69a738814a0f7c31132b6b712ed65",
+          "driver_id": "d9a9fd72-e789-4bba-9b96-549b123e5c40",
+          "source": "loldrivers"
+        },
+        {
+          "name": "athpexnt.sys",
+          "hash": "fa0902daefbd9e716faaac8e854144ea0573e2a41192796f3b3138fe7a1d19f1",
+          "driver_id": "f4e00816-97a8-4c2d-b990-9812f16fe3d3",
+          "source": "loldrivers"
+        },
+        {
+          "name": "vsdatant.sys",
+          "hash": "1c43f33573a0815c5edc5e18ba1038afdd11f55a7cd8b08ba59b8f7357117e4c",
+          "driver_id": "87d5ec39-482e-4e78-a003-be4b662f85fc",
+          "source": "loldrivers"
+        },
+        {
+          "name": "tm_filter.sys",
+          "hash": "e9fda504c9bdbe785c55a279ebb27e31783155570ab0c242e1de5bf79fbca6ed",
+          "driver_id": "651d1cdc-3e13-405f-b8b3-65cc70cef5a8",
+          "source": "loldrivers"
+        },
+        {
+          "name": "STProcessMonitor.sys",
+          "hash": "5b4f59236a9b950bcd5191b35d19125f60cfb9e1a1e1aa2e4f914b6745dde9df",
+          "driver_id": "0712c54c-69fd-41f2-950a-da678ac51246",
+          "source": "loldrivers"
+        },
+        {
+          "name": "termdd.sys",
+          "hash": "83bfa50a528762ec52a011302ac3874636fb7e26628cd7acfbf2bdc9faa8110d",
+          "driver_id": "ef848b1c-e197-4f98-aa19-4580f41a98b8",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CorMem.sys",
+          "hash": "40c855d20d497823716a08a443dc85846233226985ee653770bc3b245cf2ed0f",
+          "driver_id": "a7c3e2d1-8f4b-4e6a-b5d9-3c1f0e7a9b82",
+          "source": "loldrivers"
+        },
+        {
+          "name": "HwRwDrv.sys",
+          "hash": "017933be6023795e944a2a373e74e2cc6885b5c9bc1554c437036250c20c3a7d",
+          "driver_id": "81211b5b-36a7-41d6-a6e3-8e43cf7d0405",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CSAgent.sys",
+          "hash": "b7703a59c39a0d2f7ef6422945aaeaaf061431af0533557246397551b8eed505",
+          "driver_id": "6c84d133-c619-4deb-a91a-5cf05e4cb7c2",
+          "source": "loldrivers"
+        },
+        {
+          "name": "PDFWKRNL.sys",
+          "hash": "6e8b49cf70bf854e8c59c7d27cefa89406caf8978461190dabb86dafcd8554e1",
+          "driver_id": "ed27c0b8-6177-4132-a7af-5c15bcb386f3",
+          "source": "loldrivers"
+        },
+        {
+          "name": "thelper.sys",
+          "hash": "7e783b0a0ff4710306bb3bca29296cf962ae77abc81245a99f12a9039158226f",
+          "driver_id": "4c009d0a-8dfa-49f7-b043-b9cef3b01101",
+          "source": "loldrivers"
+        },
+        {
+          "name": "shimano32.sys",
+          "hash": "e8b1a0ddc7a4404eb3c46217e07b5ed91723f44464a6ef589634aeb4fb8f5666",
+          "driver_id": "8d23f7e6-341a-431e-9dc1-bc797773d411",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
