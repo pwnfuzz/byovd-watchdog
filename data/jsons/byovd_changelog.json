@@ -752,5 +752,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "11-04-2026",
+    "data": {
+      "added": [
+        {
+          "name": "PoisonX.sys",
+          "hash": "a5035cbd6c31616288aa66d98e5a25441ee38651fb5f330676319f921bb816a4",
+          "driver_id": "fc3467c3-6109-447d-b438-7a4276c3d8e5",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
