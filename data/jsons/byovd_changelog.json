@@ -767,5 +767,86 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "14-04-2026",
+    "data": {
+      "added": [
+        {
+          "name": "DsArk64.sys",
+          "hash": "cd3d1a2e119cbbb41ec0e7d7fb17bac106735d62b33ed3cde10087af1da89403",
+          "driver_id": "399fb787-5b06-46f0-86cb-dff7374bb015",
+          "source": "loldrivers"
+        },
+        {
+          "name": "SIVX64.sys",
+          "hash": "33903e8fa9f0a2acaa4784d645e309b0bd780693824b6c2c5fef257238c77478",
+          "driver_id": "31439f28-4616-4ee1-a6b7-1cf742127909",
+          "source": "loldrivers"
+        },
+        {
+          "name": "cpqsysio64.sys",
+          "hash": "4024b090cebcabaab884c84ec80ffb15622d12632f236383a9b0a470bff9fe33",
+          "driver_id": "e41d5471-c4b8-48da-bdb7-e462008c2e78",
+          "source": "loldrivers"
+        },
+        {
+          "name": "dtr_ec.sys",
+          "hash": "d6cc311cd7f8232549a5597512facac44e63d5c808878f54c0c1c12482cf270f",
+          "driver_id": "a2177b22-0401-4c31-8ae4-40a7e2a53653",
+          "source": "loldrivers"
+        },
+        {
+          "name": "Astra64.sys",
+          "hash": "4a8b6b462c4271af4a32cf8705fa64913bfcdaefb6cf02d1e722c611d428cb16",
+          "driver_id": "5904f3a1-2e0c-4746-8078-8ada66a5cb08",
+          "source": "loldrivers"
+        },
+        {
+          "name": "kdhacker64_ev.sys",
+          "hash": "597eff2718073b11da3d4bcade9a03fb4684f9be57d184fce65ac70a2ef07246",
+          "driver_id": "a6dd3aef-d3a7-4c72-abcd-e633e0c0706c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "AdvCare.sys",
+          "hash": "697d3e6d215d1ed6dc2465334502db92e0ca77ad0b8392c945ac9e0f36509666",
+          "driver_id": "658a906e-82d3-4c78-a63b-ddddeeb3f452",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CardIo64.sys",
+          "hash": "8a6265d23d30d6c4c7e159624686de6dbf2ccb86a421b0f45510005f7a40cd1a",
+          "driver_id": "97e3077a-ca57-4f45-ba7c-f63dc9c4ea32",
+          "source": "loldrivers"
+        },
+        {
+          "name": "TcIo.sys",
+          "hash": "e0c58531501d6176ed0f632addca977616b0dab460f32f0a5909d21f828fc63b",
+          "driver_id": "12998ebb-8c74-4e44-89a2-2a71c0f6e92b",
+          "source": "loldrivers"
+        },
+        {
+          "name": "nipalk.sys",
+          "hash": "1a6b4d5ad40c9ddf2599f6a44e94a1336aa3d28bf6a220b775f5c3305faecb2d",
+          "driver_id": "5ff0ca63-fff8-4c2d-ac04-bb09fc84259f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ArgusMonitor.sys",
+          "hash": "df9b2892498c68805fdc0fabb369f8bcf011e784898cb32fdc5d85f6123f1126",
+          "driver_id": "08fbd284-7ad2-466d-b55f-6d5a7d07aca5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "dpmemio.sys",
+          "hash": "7cf6881e43337c288b1883fafb234146a450ff94388aee395e05e36202c5afbb",
+          "driver_id": "741677e9-20d5-40e5-9cd2-3bf2beb76322",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
