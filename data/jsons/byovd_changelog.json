@@ -1331,5 +1331,38 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "24-04-2026",
+    "data": {
+      "added": [
+        {
+          "name": "devhost.sys",
+          "hash": "ee8844ffd3879190fb389b0f613cb2dcdcd83375cf0a6994170a648c5ca8c479",
+          "driver_id": "d0cc79b2-a789-4cf3-9a88-25bdabb79416",
+          "source": "loldrivers"
+        },
+        {
+          "name": "TRIXX.sys",
+          "hash": "69fb21e4c8dbfcab838d53d98ec7357d35e30cbbe5fde9e26457d79242ddd78e",
+          "driver_id": "f0a02666-44f6-4174-a7c6-d006481a340f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "WDTKernel.sys",
+          "hash": "0e27bec347ca0050c455467bd8d774175c503b8aa1af3411e94966f7dc6b28b7",
+          "driver_id": "08adabb3-7336-43de-a980-e23a55081f19",
+          "source": "loldrivers"
+        },
+        {
+          "name": "GoFly64.sys",
+          "hash": "2fdfdd13a0c548bb68c9d5aa8599a9265d4659da3e237fe7a42ac6ac06b9a06a",
+          "driver_id": "c2ed6a76-95ad-45fd-97d4-b55deefb3e32",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
