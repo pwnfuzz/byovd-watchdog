@@ -1364,5 +1364,32 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "05-05-2026",
+    "data": {
+      "added": [
+        {
+          "name": "WinIo64.sys",
+          "hash": "eaaed21c1788baca09ee16b06e1a231cb11c8417b3949d7d90596d50305dc604",
+          "driver_id": "96501e5b-e4f2-41a9-a8ee-d09e36d31a39",
+          "source": "loldrivers"
+        },
+        {
+          "name": "AppShopDrv103.sys",
+          "hash": "cea231333781085538127bdcfbf49ef1d7500c057295fba061e962376e8219e6",
+          "driver_id": "29d2c408-c1c6-451a-acf6-eddd59969183",
+          "source": "loldrivers"
+        },
+        {
+          "name": "BdApiUtil.sys",
+          "hash": "d8ce0a5866178495a66d23c9587822164966111fcd34764011e907951c599711",
+          "driver_id": "83b78b88-3b43-41cc-a60f-cab1a7b96978",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
