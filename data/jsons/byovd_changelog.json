@@ -1391,5 +1391,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "21-05-2026",
+    "data": {
+      "added": [
+        {
+          "name": "bootrepair.sys",
+          "hash": "5ab36c116767eaae53a466fbc2dae7cfd608ed77721f65e83312037fbd57c946",
+          "driver_id": "7cc0a40d-7902-4400-9fc4-0070053991cb",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
