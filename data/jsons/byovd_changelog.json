@@ -1406,5 +1406,188 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "17-06-2026",
+    "data": {
+      "added": [
+        {
+          "name": "360hvm64.sys",
+          "hash": "f89d5d95b8a59e6d5e50a49217f83d080e4eaf4bb77b80d8f38cd915640ba124",
+          "driver_id": "d4d82af5-0ac6-4d5d-944f-cf108475aba9",
+          "source": "loldrivers"
+        },
+        {
+          "name": "NGStar.sys",
+          "hash": "4542b20be7adceb61fa5f538fed8c395951e775dbd7c4a2f7c6aee477c4d924e",
+          "driver_id": "5b9a202c-0695-532e-9d92-662cedefee07",
+          "source": "loldrivers"
+        },
+        {
+          "name": "xkpsm.sys",
+          "hash": "28c5bb735f9fc38e0ebd366978898f0cfcd455e4ff8bf1a321768b09e01ee84d",
+          "driver_id": "767ed0a0-606b-4297-a858-e2af5b4a0400",
+          "source": "loldrivers"
+        },
+        {
+          "name": "KObjExp.sys",
+          "hash": "88a9b030ab81082629253c581fe0670019c766f32acfc78a6cdc1080ad272fe4",
+          "driver_id": "8347c4af-8946-4135-b890-cde3ed35fc28",
+          "source": "loldrivers"
+        },
+        {
+          "name": "tdevflt.sys",
+          "hash": "8284c8676cc22c4b2e66826ac16986da7ddecba1f2776b16771be17bfdc45dc2",
+          "driver_id": "65458077-861e-4423-b446-2a9c7afe44b5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "KRegExp.sys",
+          "hash": "5c237dcec01f5e31a78cf8c883e41d85c74675b1426379302b46b771d091dce6",
+          "driver_id": "eada0015-c868-463c-91a6-d159ee1110d7",
+          "source": "loldrivers"
+        },
+        {
+          "name": "unknown.sys",
+          "hash": "97bd65e98cdc4e93d49edd4ea905d43a61244df0fd3323e6649330de3b1be091",
+          "driver_id": "bffcac17-f20c-43cc-baf0-93fd20bc1ed5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ZYArKit.sys",
+          "hash": "46883bc25c77678f60c1b836f4c438d87158c9af6b229f533522f635a0d5276e",
+          "driver_id": "f2032ff3-9c67-4d48-981b-2479babb153d",
+          "source": "loldrivers"
+        },
+        {
+          "name": "pcdsrvc_x64.sys",
+          "hash": "1d053020079124ac526d84affb17bf4a1563ecd872c83b4b6299c9aa6a732557",
+          "driver_id": "d4eb6ed4-c23f-45a9-9891-5aa8f218b863",
+          "source": "loldrivers"
+        },
+        {
+          "name": "deresute64.sys",
+          "hash": "09a5ca7673f3734f8987b2b4d69255ffaa05cd2e77cf2d6f72a2d6a3c91139fb",
+          "driver_id": "dbd78de7-f5ab-4fb7-a246-39cbcca4678c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "shield.sys",
+          "hash": "b11db76aeab05f29e8f5d51cdfe70898a46fbd50a1245ca1aed39de10aafd401",
+          "driver_id": "0e272ccf-81e5-4612-95d2-365e7ded6eac",
+          "source": "loldrivers"
+        },
+        {
+          "name": "GameDriverX64.sys",
+          "hash": "b6628d201c2a68d2a3de2a87de7a5acfe21b101a97928e1c8d5c82102d967383",
+          "driver_id": "271ace20-2f68-4695-9579-0d4de8cb4fe6",
+          "source": "loldrivers"
+        },
+        {
+          "name": "NeacSafe64.sys",
+          "hash": "65447f727801e8be8a51aaaafc07618c8196553e683affb0721da441e2430bad",
+          "driver_id": "d474d8ad-14d9-4664-addd-86b4a9b7a1a5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "xhunter1.sys",
+          "hash": "e727d0753d2cd0b2f6eeba4cea53aa10b3ff3ed2afeb78f545fcf6d840f85c3e",
+          "driver_id": "96ba5e53-6a40-4813-b6f1-ccce31a883cf",
+          "source": "loldrivers"
+        },
+        {
+          "name": "qu829.sys",
+          "hash": "46f2c93c279763a818dffbf89c8893ac0718bd3f5d8fbf327887063068a412a5",
+          "driver_id": "3599f0ef-67fc-4130-910f-0c482612d16f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "pmxdrv64.sys",
+          "hash": "b1a8ee1222eea5f199028d90b9b77c2acf46d6d84a9e125403b2888c6f681c72",
+          "driver_id": "95fc9bf0-ec86-44b3-abad-a4c922aa7742",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ProcessCtr.sys",
+          "hash": "d64eeb940daffdc8327fb18b160c20e539088cf8407813655f59efa9fdf0022e",
+          "driver_id": "5d658b45-81f0-442e-ac43-7c249ce1d54f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "PCTcore64.sys",
+          "hash": "c76dd87891e3e30db2aed057e7b04c19ca264f434c21f68a7a2d9b17a97aff39",
+          "driver_id": "8f2d3be4-3e25-490f-82bc-0aca16aee101",
+          "source": "loldrivers"
+        },
+        {
+          "name": "PGRHostControl.sys",
+          "hash": "4b0e9834dd672e4ce81464d8887c71f9a0942140557cd0ad321da9a1aa849959",
+          "driver_id": "82eee73e-156e-4344-b975-babbf0bc131f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "KslD.sys",
+          "hash": "2b3195346d9b62b08bb61bb61f0da20b2abb0c726186c09a2e4fa926baacbfc5",
+          "driver_id": "57822c56-6531-4a2e-afbf-96f77dc5fcaf",
+          "source": "loldrivers"
+        },
+        {
+          "name": "LECOMAx64.sys",
+          "hash": "0f2dff4116a84241d8cafe534b63454fb4ea26272da8977be03670701ec6631c",
+          "driver_id": "47d4b71f-eebd-4775-9e7c-b031135e8f1b",
+          "source": "loldrivers"
+        },
+        {
+          "name": "KExplore.sys",
+          "hash": "c71e14961ac29165ddf6e5e8f9372e82fc79494da07afbfaf2ccfc9bd3bbbe18",
+          "driver_id": "1b916d35-f62b-41ef-8454-3aed20299cb0",
+          "source": "loldrivers"
+        },
+        {
+          "name": "RootLaser.sys",
+          "hash": "85b69f4e518c66b8ba7154ecb1ac1e8791dfe2fdf1e20b7c3a707f59639ac10d",
+          "driver_id": "4c9a91ff-9284-49a7-899d-dfe85a112465",
+          "source": "loldrivers"
+        },
+        {
+          "name": "Cndom6.sys",
+          "hash": "8c12407a40eab287a8281be64665b1e72b0e91b2daf84030a1a15dc280e5dbf1",
+          "driver_id": "2703d3dd-05f0-4ae2-83a2-2ad0939467d0",
+          "source": "loldrivers"
+        },
+        {
+          "name": "AsrDrv107.sys",
+          "hash": "be131e30464c7be03bd2d16f99ea2b04c106b482cc5c52be659e4c0301206348",
+          "driver_id": "2d3178da-ea76-4f36-93f4-d76bf846c240",
+          "source": "loldrivers"
+        },
+        {
+          "name": "CcProtect.sys",
+          "hash": "5f0cfe8357bb52b45068ddbac053e32bc38e6cb5e086746f5402657b0a5cfb1c",
+          "driver_id": "3e3067b0-3d74-46fe-9f57-1ae3a0293958",
+          "source": "loldrivers"
+        },
+        {
+          "name": "EnPortv.sys",
+          "hash": "d42f1b420747b82533e33107c710c45c29ff20aa5da3d1c8498b7bed7f9ebc81",
+          "driver_id": "18935808-e00c-4b75-a7fc-03e409a7570e",
+          "source": "loldrivers"
+        },
+        {
+          "name": "LnvMSRIO.sys",
+          "hash": "7023f08c9f99076a5fb82a0f661847e2951800f095fca1793a0e6bd9c949b478",
+          "driver_id": "87680018-393b-47b6-8130-6b41bed2bc7c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "Driver_win10.sys",
+          "hash": "70c9f9e8dcbba700e0fc20e6ae9b4c5df98326cf212ac8794fc8ee9a46e948c4",
+          "driver_id": "cb9f4425-66de-4371-a3df-3aeec1fda65c",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
