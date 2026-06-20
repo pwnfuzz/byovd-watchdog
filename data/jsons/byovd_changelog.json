@@ -1589,5 +1589,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "20-06-2026",
+    "data": {
+      "added": [
+        {
+          "name": "ardrv.sys",
+          "hash": "07c5209bf83065fe760f4fee4ed2308b0c523671f68ca73a3854c2c8c28c0541",
+          "driver_id": "9eb0156e-4c43-487f-be8c-40a7b19a4279",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
