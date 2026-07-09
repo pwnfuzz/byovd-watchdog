@@ -1631,5 +1631,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "09-07-2026",
+    "data": {
+      "added": [
+        {
+          "name": "pstrip64.sys",
+          "hash": "ab01485bb7c8bc1a9c86096eeea6d31d8fad557bf4d44072b46373d2203faa6e",
+          "driver_id": "1db2dd90-5b8e-43c3-a39b-61e0614fb2ab",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
