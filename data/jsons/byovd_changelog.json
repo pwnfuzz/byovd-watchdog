@@ -1646,5 +1646,32 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "11-07-2026",
+    "data": {
+      "added": [
+        {
+          "name": "ktapi.sys",
+          "hash": "7ee17efef04bb7c9de90d5210263ed6993f867e5a11f86e65e3bb1362c7de237",
+          "driver_id": "8a6aebaa-34aa-46e8-a864-4189a55fd17b",
+          "source": "loldrivers"
+        },
+        {
+          "name": "QIOMem.sys",
+          "hash": "6abd8d0d541bcf9e257c65122216b1d2ae92cbf8a3a3cb7ce340846e66c449ca",
+          "driver_id": "6eca187c-8fb2-4eae-9c80-fd9ef9d8c91e",
+          "source": "loldrivers"
+        },
+        {
+          "name": "MonProcessEX.sys",
+          "hash": "72d0b5615b996cbb01b1ca139e627079094f734da48a0435ffd8480a25d0a258",
+          "driver_id": "c3c083d2-e9bd-4891-8582-46086de2b2b4",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
