@@ -1673,5 +1673,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "13-08-2026",
+    "data": {
+      "added": [
+        {
+          "name": "KKYUM.sys",
+          "hash": "72bd55f4459c992b9caa1a33cb6862f1f3085ca35839c58dee8b75db22ca605f",
+          "driver_id": "459c39a0-d6bd-4d3e-91ae-a701bb0b3198",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
