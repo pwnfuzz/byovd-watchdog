@@ -1688,5 +1688,26 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "29-08-2026",
+    "data": {
+      "added": [
+        {
+          "name": "Alinubx.sys",
+          "hash": "611b3ba687b7f46319a19609605ddfe5225e6d85277d8e923eea3fdb6f7b5b61",
+          "driver_id": "84a3007a-de5e-4622-bfc5-f05d927c3618",
+          "source": "loldrivers"
+        },
+        {
+          "name": "DCRCVDrv.sys",
+          "hash": "87e8d39db624f37d3e77aedf487a2dfd197f71a4730ea74f4e7a4341deaec2ff",
+          "driver_id": "89643454-e38b-41cb-853d-abf649a104a5",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
