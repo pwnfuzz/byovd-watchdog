@@ -1826,5 +1826,50 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "09-09-2026",
+    "data": {
+      "added": [
+        {
+          "name": "PlugPlayService.sys",
+          "hash": "08f7a991816ce5009ee593b221853477724469be531961d55ec9f0d13ac5b793",
+          "driver_id": "03d1a3a2-e76c-4fd5-a134-55ec983fdc4c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "windrvr1251.sys",
+          "hash": "072f16148483afeeb0c37c745421df83f26d8359da95dc1219a700742cf010f7",
+          "driver_id": "d2a619bb-c8c6-4c79-8b6a-8368668bbfb2",
+          "source": "loldrivers"
+        },
+        {
+          "name": "RzDev_00X10.sys",
+          "hash": "80f97dabef128a391e3ad10e4521dd0a28adc01a97e1cef980f535ac23bd0847",
+          "driver_id": "adf27819-c7a0-4476-8632-5ca759202542",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ampg.sys",
+          "hash": "cacaf0698c6371f8cc45fae85a13fb738f0b8ce0db716c5e4d0d12152de163e3",
+          "driver_id": "bd5bc879-6602-4338-938e-0873f71bd3d0",
+          "source": "loldrivers"
+        },
+        {
+          "name": "MemLoaderCustomize.sys",
+          "hash": "c6825f94cda9050a12fa629768fda150affc36473a1a333c364b3478b2e02891",
+          "driver_id": "e69e3427-97cd-43bb-aeda-f1fbbeaa75f6",
+          "source": "loldrivers"
+        },
+        {
+          "name": "rksafe.sys",
+          "hash": "81fbcacbc28001909391dbdafd9854ca997befa38dee4f2d9e8fbdbd00bc3723",
+          "driver_id": "5cbb1918-f7ac-4de8-b334-0bb4824a516b",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
