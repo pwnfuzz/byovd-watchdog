@@ -1871,5 +1871,62 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "19-09-2026",
+    "data": {
+      "added": [
+        {
+          "name": "AmdTools64.sys",
+          "hash": "891007bc9f3b55ae168fa60ccbb831ccdb5dce4da4a591d000806d5a2c6115c3",
+          "driver_id": "1bab0fae-7908-4fae-9db7-73562c7d92cd",
+          "source": "loldrivers"
+        },
+        {
+          "name": "pwdrvio.sys",
+          "hash": "0489b3dec6a33e50d8a48a8dad3f5b923a81f7300e4a71358d90d2879bac9aa2",
+          "driver_id": "50eec1d1-87ea-405d-a7c0-d789c29630a7",
+          "source": "loldrivers"
+        },
+        {
+          "name": "fortimon3.sys",
+          "hash": "6f131b58dfe47cb7fc721f1023e55242a6f2043fa337467338844fdf338f010f",
+          "driver_id": "70a7693f-2880-47a0-90f2-9703f2b4cab3",
+          "source": "loldrivers"
+        },
+        {
+          "name": "SakDriver.sys",
+          "hash": "4e95aba17c1a423cda5cc9f9f04f7cf8db17e294eb31ed1aa85063601b82fe8d",
+          "driver_id": "7d9e8ee4-6725-4216-bc6b-ac3042018d5c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "kgameprotect.sys",
+          "hash": "6c1d596d18213e24f0c88d58ea7f3ca24114eded806b6198a8abc701251126ee",
+          "driver_id": "a0006589-a811-4341-9be0-4512eae9febb",
+          "source": "loldrivers"
+        },
+        {
+          "name": "pskmad.sys",
+          "hash": "9bf3b737afa4d4f5e7b00ec749d4b75656ad66d9a2b402e1e81934e95ba7df5b",
+          "driver_id": "b9216fc9-860e-43ae-8db2-e970c7e76b46",
+          "source": "loldrivers"
+        },
+        {
+          "name": "pxscan.sys",
+          "hash": "b854c4c2c860b8cf00808ba07b9ebbfff66d483b8a2aa15a94211e57b84ee1f2",
+          "driver_id": "be1a3216-73db-46e4-b107-87d9b7751181",
+          "source": "loldrivers"
+        },
+        {
+          "name": "mbamchameleon.sys",
+          "hash": "d86b9b20788b6bff70a1a4c4111b2ea33b9ec705cc6b8fe869362fc3899820a3",
+          "driver_id": "c2feb6de-46fe-44ab-93c2-634ea6ab83a2",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
