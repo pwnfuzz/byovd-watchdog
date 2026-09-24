@@ -1928,5 +1928,26 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "24-09-2026",
+    "data": {
+      "added": [
+        {
+          "name": "AToolsKrnl64.sys",
+          "hash": "f85af685660a28e3cd18e2c9ef6b1fbb440ae0c5934e625e8a055e1f158c3e56",
+          "driver_id": "643b121c-f883-5699-a032-f07c1e9eecfd",
+          "source": "loldrivers"
+        },
+        {
+          "name": "BS_LED64.sys",
+          "hash": "db86e3e131a899e1688522d2003d22c3131f8b7cdb432b084be37078b9a3429d",
+          "driver_id": "ade59ea2-0935-40e7-886b-1f4df2dd0b95",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
