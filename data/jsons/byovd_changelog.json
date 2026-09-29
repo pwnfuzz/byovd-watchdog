@@ -1949,5 +1949,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "29-09-2026",
+    "data": {
+      "added": [
+        {
+          "name": "IoDrv.sys",
+          "hash": "266d2027a8fc999773c88defd4591d02b8819cf6b07699182319338270b399d2",
+          "driver_id": "a597bd2a-e3f6-5d53-bd3f-3f0b4a43defa",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
