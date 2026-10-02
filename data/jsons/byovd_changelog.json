@@ -1964,5 +1964,20 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "02-10-2026",
+    "data": {
+      "added": [
+        {
+          "name": "ollama.sys",
+          "hash": "2515b546125d20013237aeadec5873e6438ada611347035358059a77a32c54f5",
+          "driver_id": "4364d33d-c0ef-4317-835e-b6705b94f756",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
