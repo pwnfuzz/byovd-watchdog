@@ -1979,5 +1979,32 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "06-10-2026",
+    "data": {
+      "added": [
+        {
+          "name": "sysdiag.sys",
+          "hash": "5aeae04dd27ff148cb8c0f646e34b0404a963b8ec6fc930e75ae5b09d5ec3291",
+          "driver_id": "11d2230e-d9a4-5841-a508-ca8ffa827e56",
+          "source": "loldrivers"
+        },
+        {
+          "name": "360FsFlt_win10.sys",
+          "hash": "1c738be5e36be196c23c0d092ed1dd2e81b00158475e0f361105e0cdc9726d0c",
+          "driver_id": "5cb0463b-cf28-56b7-b5cc-f2003c5c78d1",
+          "source": "loldrivers"
+        },
+        {
+          "name": "ccekrnl.dat",
+          "hash": "bf0c3dde6b66a1ee7a43f7d9efef2a22334ad727bee2d4a72d7a8e82d3a781e5",
+          "driver_id": "c08e6fc3-38f6-56fa-b937-922442dcbfba",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
