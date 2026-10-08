@@ -23425,7 +23425,7 @@
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "sc.exe create STProcessMonitor binPath=C:\\windows\\temp\\STProcessMonitor.sys type=kernel && sc.exe start STProcessMonitor",
-      "Description": "Safetica STProcessMonitor / ProcessMonitorDriver.sys exposes process-termination functionality through vulnerable IOCTL paths documented in public BYOVD research. The tracked samples include the 11.26.18.0 build and the legacy 11.11.4.0 build; public research notes that affected versions can be abused to terminate endpoint security processes from kernel context.",
+      "Description": "Safetica STProcessMonitor / ProcessMonitorDriver.sys exposes process-termination functionality through vulnerable IOCTL paths documented in public BYOVD research. The tracked samples include the 11.26.18.0 build and the legacy 11.11.4.0 build; public research notes that affected versions can be abused to terminate endpoint security processes from kernel context. IronChain ransomware bundles the 11.26.18 sample, but per ANY.RUN's static analysis its request (IOCTL 0xB822200C, 4-byte input) does not match the driver's expected 0xB822A00C with at least 8 bytes, so the kill path fails.",
       "Usecase": "Disable security tools",
       "Privileges": "kernel",
       "OperatingSystem": "Windows 10"
@@ -23434,7 +23434,8 @@
       "https://www.cve.org/CVERecord?id=CVE-2025-70795",
       "https://github.com/magicsword-io/LOLDrivers/issues/268",
       "https://github.com/KOSEC-LLC/BYOVD-Research/tree/main/Safetica",
-      "https://github.com/BlackSnufkin/BYOVD/tree/main/STProcessMonitor-Killer"
+      "https://github.com/BlackSnufkin/BYOVD/tree/main/STProcessMonitor-Killer",
+      "https://any.run/cybersecurity-blog/ironchain-analysis/"
     ],
     "Detection": [],
     "Acknowledgement": {
@@ -220005,7 +220006,7 @@
     "Verified": "TRUE",
     "Commands": {
       "Command": "sc.exe create throttlestop.sys binPath= C:\\windows\\temp\\throttlestop.sys type=kernel && sc.exe start throttlestop.sys",
-      "Description": "ThrottleStop is developed by TechPowerUp and is designed to monitor for and correct CPU throttling issues. However, Kaspersky researchers from the Global Emergency Response Team (GERT) found out that it is being abused by attackers to terminate defense mechanisms. Akira ransomware affiliates have dropped this same signed driver (same SHA256) as rwdrv.sys in %TEMP% and registered it as a kernel service named mgdsrv, alongside the malicious hlpdrv.sys (service KMHLPSVC), to disable Microsoft Defender. Note that the rwdrv.sys filename collides with the unrelated RWEverything RwDrv.sys driver, so name-based hunting will conflate the two; hunt on hash or the TechPowerUp LLC signer instead. Per the public CVE-2025-7771 PoC write-up, the driver derives its device name from the service name, so device-name based detections are also unreliable.",
+      "Description": "ThrottleStop is developed by TechPowerUp and is designed to monitor for and correct CPU throttling issues. However, Kaspersky researchers from the Global Emergency Response Team (GERT) found out that it is being abused by attackers to terminate defense mechanisms. Akira ransomware affiliates have dropped this same signed driver (same SHA256) as rwdrv.sys in %TEMP% and registered it as a kernel service named mgdsrv, alongside the malicious hlpdrv.sys (service KMHLPSVC), to disable Microsoft Defender. Note that the rwdrv.sys filename collides with the unrelated RWEverything RwDrv.sys driver, so name-based hunting will conflate the two; hunt on hash or the TechPowerUp LLC signer instead. Per the public CVE-2025-7771 PoC write-up, the driver derives its device name from the service name, so device-name based detections are also unreliable. IronChain ransomware also bundles this driver and configures IOCTL 0x8000649C, but per ANY.RUN's static analysis never sends it.",
       "OperatingSystem": "Windows 10",
       "Privileges": "kernel",
       "Usecase": "Elevate privileges"
@@ -220015,7 +220016,8 @@
       "https://www.cve.org/CVERecord?id=CVE-2025-7771",
       "https://www.guidepointsecurity.com/blog/gritrep-akira-sonicwall/",
       "https://thedfirreport.com/2026/06/29/from-bing-search-to-ransomware-bumblebee-and-adaptixc2-deliver-akira-3/",
-      "https://github.com/enessakircolak/CVE-2025-7771"
+      "https://github.com/enessakircolak/CVE-2025-7771",
+      "https://any.run/cybersecurity-blog/ironchain-analysis/"
     ],
     "Detection": [
       {
@@ -253776,14 +253778,15 @@
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "sc.exe create BdApiUtil binPath=C:\\windows\\temp\\BdApiUtil.sys type=kernel && sc.exe start BdApiUtil",
-      "Description": "BdApiUtil.sys is a kernel driver from Baidu Antivirus that exposes dangerous primitives to usermode with no authentication. The driver provides process termination by PID via PsLookupProcessByProcessId and ZwTerminateProcess (IOCTL 0x800024B4), process suspension via dynamically-resolved NtSuspendProcess (IOCTL 0x800024B8), full kernel registry CRUD including ZwOpenKey (0x80002190), ZwCreateKey (0x80002194), ZwSetValueKey (0x80002198), ZwDeleteKey (0x8000219C), and ZwDeleteValueKey (0x800021A0), and kernel-mode file creation via ObInsertObject/ZwCreateFile (0x80002324). The process termination primitive is exploited by the GoodBaiii EDR killer tool. Registry callback monitoring via CmRegisterCallback and process creation monitoring via PsSetCreateProcessNotifyRoutine are also present.",
+      "Description": "BdApiUtil.sys is a kernel driver from Baidu Antivirus that exposes dangerous primitives to usermode with no authentication. The driver provides process termination by PID via PsLookupProcessByProcessId and ZwTerminateProcess (IOCTL 0x800024B4), process suspension via dynamically-resolved NtSuspendProcess (IOCTL 0x800024B8), full kernel registry CRUD including ZwOpenKey (0x80002190), ZwCreateKey (0x80002194), ZwSetValueKey (0x80002198), ZwDeleteKey (0x8000219C), and ZwDeleteValueKey (0x800021A0), and kernel-mode file creation via ObInsertObject/ZwCreateFile (0x80002324). The process termination primitive is exploited by the GoodBaiii EDR killer tool. Registry callback monitoring via CmRegisterCallback and process creation monitoring via PsSetCreateProcessNotifyRoutine are also present. IronChain ransomware bundles this sample and implements a matching process-kill path (\\\\.\\BdApiUtil, IOCTL 0x800024B4, 4-byte PID), per ANY.RUN's static analysis.",
       "Usecase": "Elevate privileges",
       "Privileges": "kernel",
       "OperatingSystem": "Windows 10"
     },
     "Resources": [
       "https://github.com/magicsword-io/LOLDrivers/issues/231",
-      "https://github.com/RainbowDynamix/GoodBaiii"
+      "https://github.com/RainbowDynamix/GoodBaiii",
+      "https://any.run/cybersecurity-blog/ironchain-analysis/"
     ],
     "Detection": [],
     "Acknowledgement": {
@@ -268506,7 +268509,7 @@
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "sc.exe create LnvMSRIO binPath=C:\\windows\\temp\\LnvMSRIO.sys type=kernel && sc.exe start LnvMSRIO",
-      "Description": "LnvMSRIO.sys is a Lenovo Dispatcher driver affected by CVE-2025-8061. The tracked 3.0.2.28 through 3.1.0.36 builds predate Lenovo's fixed 3.1.0.41 driver. The WinMsrDev interface exposes physical-memory read and write through IOCTLs 0x9C406104 and 0x9C40A108 and MSR read and write through 0x9C402084 and 0x9C402088, allowing an authenticated local user to execute code with elevated privileges when Memory Integrity is not enabled.",
+      "Description": "LnvMSRIO.sys is a Lenovo Dispatcher driver affected by CVE-2025-8061. The tracked 3.0.2.28 through 3.1.0.36 builds predate Lenovo's fixed 3.1.0.41 driver. The WinMsrDev interface exposes physical-memory read and write through IOCTLs 0x9C406104 and 0x9C40A108 and MSR read and write through 0x9C402084 and 0x9C402088, allowing an authenticated local user to execute code with elevated privileges when Memory Integrity is not enabled. IronChain ransomware drops the 3.1.0.29 sample as BootRepair.sys, but per ANY.RUN's static analysis it opens \\\\.\\BootRepair instead of \\\\.\\WinMsrDev and uses an unrelated IOCTL, so the driver interface is not actually used.",
       "Usecase": "Elevate privileges",
       "Privileges": "User",
       "OperatingSystem": "Windows 10, Windows 11"
@@ -268520,7 +268523,8 @@
       "https://nvd.nist.gov/vuln/detail/CVE-2025-8061",
       "https://support.lenovo.com/us/en/product_security/LEN-200860",
       "https://github.com/segura2010/lenovo-dispatcher-poc",
-      "https://github.com/spawn451/CVE-2025-8061-Exploit"
+      "https://github.com/spawn451/CVE-2025-8061-Exploit",
+      "https://any.run/cybersecurity-blog/ironchain-analysis/"
     ],
     "Detection": [],
     "Acknowledgement": {
