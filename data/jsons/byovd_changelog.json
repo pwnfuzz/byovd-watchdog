@@ -2006,5 +2006,38 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "20-10-2026",
+    "data": {
+      "added": [
+        {
+          "name": "libwasys.sys",
+          "hash": "24a4dd32b633781c8c1193c9b445388ca7277799941a36ba9977b84382125e5c",
+          "driver_id": "0f50f568-bd09-4d8a-a73d-d37bdd0a1cb6",
+          "source": "loldrivers"
+        },
+        {
+          "name": "heysafe_drv.sys",
+          "hash": "a188993dd8cac6628f97dfd390cfab8a9e510d581c39e32da66cbc4b559db27d",
+          "driver_id": "a2a53148-ff02-4d63-9269-e47966431c62",
+          "source": "loldrivers"
+        },
+        {
+          "name": "RtsUpx.sys",
+          "hash": "6e29c49f9e97747c77e5929d026538b5e7e2d999fefe1dd502a6a422b7cb6485",
+          "driver_id": "d1110c3d-3c4c-498e-b9ad-b8874b25841f",
+          "source": "loldrivers"
+        },
+        {
+          "name": "MonProcessControl.sys",
+          "hash": "0e1cc4f205ddc6b78578de2da209ba3ba1f16fac482f4042bbd02036fc470f04",
+          "driver_id": "de4bebdc-0f92-4855-989a-ac2cd1224190",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]

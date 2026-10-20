@@ -33239,6 +33239,516 @@
     ]
   },
   {
+    "Id": "0f50f568-bd09-4d8a-a73d-d37bdd0a1cb6",
+    "Tags": [
+      "libwasys.sys"
+    ],
+    "Verified": "TRUE",
+    "Author": "Michael Haag",
+    "Created": "2026-10-19",
+    "MitreID": "T1562.001",
+    "Category": "vulnerable driver",
+    "Commands": {
+      "Command": "sc.exe create libwasys binPath=C:\\windows\\temp\\libwasys.sys type=kernel && sc.exe start libwasys",
+      "Description": "OPSWAT's libwasys.sys (OESIS V4 Helper Driver) exposes process termination through IOCTL 0x22E00C on \\\\.\\WasysControl. Jehad Abudagga's KillerLand research publishes a proof of concept that submits a four-byte target PID and reports termination of protected AV/EDR processes. Static analysis of versions 10.3.85.0 and 10.3.2951.0 confirms that this IOCTL resolves the supplied PID with PsLookupProcessByProcessId, opens the process with ObOpenObjectByPointer using KernelMode, assigns it to a job object, and calls ZwTerminateJobObject. The device security descriptor grants generic-all access to built-in users. The shared README identifies version 10.3.85.0 by SHA256, while the bundled binary is version 10.3.2951.0; both samples contain the termination path. Protected-process termination is reported by the researcher and was not independently reproduced here.",
+      "Usecase": "Terminate caller-selected processes from kernel mode to impair security tools.",
+      "Privileges": "Local user once the driver is loaded; administrator required to install the driver.",
+      "OperatingSystem": "Windows"
+    },
+    "Resources": [
+      "https://github.com/redteamfortress/KillerLand",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/README.md",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/1.%20Libwasys/libwasys_poc.c",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/1.%20Libwasys/libwasys.sys"
+    ],
+    "Acknowledgement": {
+      "Person": "Jehad Abudagga",
+      "Handle": "@j3h4ck"
+    },
+    "Detection": [],
+    "KnownVulnerableSamples": [
+      {
+        "Filename": "libwasys.sys",
+        "MD5": "faf0f09e10c49f78812d593674638ce2",
+        "SHA1": "6bde1a46226a962a6e0d33c5a2a4f081c5642da2",
+        "SHA256": "24a4dd32b633781c8c1193c9b445388ca7277799941a36ba9977b84382125e5c",
+        "Imphash": "e28794f8ba03b47b4b3d6c8bc23f589f",
+        "Authentihash": {
+          "MD5": "3c734f4ad71d070d589a61f901f57b12",
+          "SHA1": "e022f701efa328c8043e7d7b50d25a3d231fa2e9",
+          "SHA256": "e107cd1af84df5ac1a91a7bd8b90dca3cb9a141152b109bb334199a79a36dff8"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "187339cc43e72d90639ad2a7b524c433",
+          "SHA1": "6ba7e9720a19faadf76b4cd6fcfac9e90448c793",
+          "SHA256": "1bb732a9d20270e51008aa2b53e01bea43b49dd840651fb482bccba078f2cf1d"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.181151905804858,
+            "Virtual Size": "0x11c8"
+          },
+          ".rdata": {
+            "Entropy": 4.278110480765515,
+            "Virtual Size": "0xc2c"
+          },
+          ".data": {
+            "Entropy": 2.0394503372172323,
+            "Virtual Size": "0x238"
+          },
+          ".pdata": {
+            "Entropy": 4.08905368316516,
+            "Virtual Size": "0x258"
+          },
+          "PAGE": {
+            "Entropy": 6.217959990674024,
+            "Virtual Size": "0x1c8c"
+          },
+          "INIT": {
+            "Entropy": 5.261335702830072,
+            "Virtual Size": "0x6ea"
+          },
+          ".rsrc": {
+            "Entropy": 3.370069065740873,
+            "Virtual Size": "0x390"
+          },
+          ".reloc": {
+            "Entropy": 3.5277561990988673,
+            "Virtual Size": "0x2c"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2022-06-24 01:40:55",
+        "Description": "OESIS V4 Helper Driver (x64)",
+        "Company": "OPSWAT, Inc.",
+        "InternalName": "libwasys.sys",
+        "OriginalFilename": "libwasys.sys",
+        "FileVersion": "10.3.2951.0",
+        "Product": "OESIS V4 Kernel Driver",
+        "ProductVersion": "10.3.2951.0",
+        "Copyright": " © OPSWAT, Inc.  All rights reserved.",
+        "MachineType": "AMD64",
+        "Imports": [
+          "ntoskrnl.exe"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "ExAllocatePoolWithTag",
+          "ExFreePoolWithTag",
+          "IofCompleteRequest",
+          "IoCreateFile",
+          "IoCreateSymbolicLink",
+          "IoDeleteDevice",
+          "IoDeleteSymbolicLink",
+          "ObReferenceObjectByHandle",
+          "ObfDereferenceObject",
+          "ZwQueryInformationFile",
+          "ZwSetInformationFile",
+          "ZwReadFile",
+          "ZwClose",
+          "ZwOpenKey",
+          "ZwFlushKey",
+          "ZwSetValueKey",
+          "ZwDeviceIoControlFile",
+          "PsLookupProcessByProcessId",
+          "ObOpenObjectByPointer",
+          "FsRtlAcquireFileExclusive",
+          "FsRtlReleaseFile",
+          "_vsnwprintf",
+          "ZwCreateJobObject",
+          "ZwAssignProcessToJobObject",
+          "ZwTerminateJobObject",
+          "IoFileObjectType",
+          "PsProcessType",
+          "MmGetSystemRoutineAddress",
+          "RtlInitUnicodeString",
+          "RtlFreeUnicodeString",
+          "ZwSetSecurityObject",
+          "IoDeviceObjectType",
+          "IoCreateDevice",
+          "RtlGetDaclSecurityDescriptor",
+          "RtlGetGroupSecurityDescriptor",
+          "RtlGetOwnerSecurityDescriptor",
+          "RtlGetSaclSecurityDescriptor",
+          "SeCaptureSecurityDescriptor",
+          "_snwprintf",
+          "RtlLengthSecurityDescriptor",
+          "SeExports",
+          "RtlCreateSecurityDescriptor",
+          "_wcsnicmp",
+          "wcschr",
+          "RtlAbsoluteToSelfRelativeSD",
+          "RtlAddAccessAllowedAce",
+          "RtlLengthSid",
+          "IoIsWdmVersionAvailable",
+          "RtlSetDaclSecurityDescriptor",
+          "ZwQueryValueKey",
+          "ZwCreateKey",
+          "KeBugCheckEx"
+        ],
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance EV Root CA",
+                "ValidFrom": "2011-04-15 19:45:33",
+                "ValidTo": "2021-04-15 19:55:33",
+                "Signature": "208cc159ed6f9c6b2dc14a3e751d454c41501cbd80ead9b0928b062a133f53169e56396a8a63b6782479f57db8b947a10a96c2f6cbbda2669f06e1acd279090efd3cdcac020c70af3f1bec787ed4eb4b056026d973619121edb06863e09712ab6fa012edd99fd2da273cb3e456f9d1d4810f71bd427ca689dccdd5bd95a2abf193117de8ac3129a85d6670419dfc75c9d5b31a392ad08505508bac91cac493cb71a59da4946f580cfa6e20c40831b5859d7e81f9d23dca5b18856c0a86ec22091ba574344f7f28bc954aab1db698b05d09a477767eefa78e5d84f61824cbd16da6c3a19cc2107580ff9d32fde6cf433a82f7ce8fe1722a9b62b75fed951a395c2f946d48b7015f332fbbdc2d73348904420a1c8b79f9a3fa17effaa11a10dfe0b2c195eb5c0c05973b353e18884ddb6cbf24898dc8bdd89f7b393a24a0d5dfd1f34a1a97f6a66f7a1fb090a9b3ac013991d361b764f13e573803afce7ad2b590f5aedc3999d5b63c97eda6cb16c77d6b2a4c9094e64c54fd1ecd20ecce689c8758e96160beeb0ec9d5197d9fe978bd0eac2175078fa96ee08c6a2a6b9ce3e765bcbc2d3c6ddc04dc67453632af0481bca8006e614c95c55cd48e8e9f2fc13274bdbd11650307cdefb75e0257da86d41a2834af8849b2cfa5dd82566f68aa14e25954feffeaeeefea9270226081e32523c09fcc0f49b235aa58c33ac3d9169410",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "61204db4000000000027",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "8e3ffc222fbcebdbb8b23115ab259be7",
+                  "SHA1": "ee20bff28ffe13be731c294c90d6ded5aae0ec0e",
+                  "SHA256": "59826b69bc8c28118c96323b627da59aaca0b142cc5d8bad25a8fcfd399aa821",
+                  "SHA384": "f2dab7e56a33298654924501499487f6ba72c7d9477476a186e1ed7a9be031fade0e35ac09eff5e56bbbab95ae5374e7"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert Trusted Root G4",
+                "ValidFrom": "2022-06-09 00:00:00",
+                "ValidTo": "2031-11-09 23:59:59",
+                "Signature": "9a1602a501ef81fb0db458b278ada82319d97337da609e51d7cbf82f40b9a31f7c404e333e903ce789017585e8627b1d56e071bade5ec637bc795c62004df8497a514d0632f3c5d2002a2720ea892e1539e02c3ef8757c2c824161350f23d0ed3595d288952943cbe0a658107c538e9f45c9203714c0ed19ba7e7739d25496c7a611df3433f67552424b1c9d8d96d5956c471214245f2641fa1a46bddeb0e5914703ac1808cbcbdb66897f2b9c65bfbe374ebe2df39d4ac3cccc475ec89595add1cbbb2a0620f93f72ea36eb4572927a297b14033cfb4dd648717a10118a0874cd6c1b045cd28a950376515053d62ef74a46c3ae102c714cb087b62737446044",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.12",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "01240afb1e380b8a16f14b719df4d3c0",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "a780e8237c69d6012c9a0ce5576fbab0",
+                  "SHA1": "613115803ff02f51d735686030790041e4207ecd",
+                  "SHA256": "2a73e196c22294f2670b352ff3e37cb6c586d5754c67f2557c10dc49295e32dd",
+                  "SHA384": "71f67d14277b8318635b771249919e29fa673b9f3b7b41ad50b83f38a0a128860d0a49f0fb212bec5bbacaf538749d57"
+                }
+              },
+              {
+                "Subject": "BUSINESS_CATEGORY=Private Organization, JURISDICTION_OF_INCORPORATION_C=US, JURISDICTION_OF_INCORPORATION_SP=California, serialNumber=C2425568, C=US, ST=California, L=San Francisco, O=OPSWAT, Inc., CN=OPSWAT, Inc.",
+                "ValidFrom": "2021-04-16 00:00:00",
+                "ValidTo": "2024-05-03 23:59:59",
+                "Signature": "9da2c04920da3b6c9206252461e01173d266e1269afece5f656db88cb6b1f5473d19365dbf4ca5369678a09c06d47cb313d44ae323f1cbe861c05e7fa8c5bb6133bf22c7258edc009380129cf82b9fc1ef4d07a7ee3bb2048dec5793167f3535491c0ce357e07f5283580c2998de663630aa8d8f9dfd429de1cccb1cc163b2484049650bb2457b65c2a659c0fbf090c2c243d956262851e9d400d34191df8482ace99964046f48ce648c1f03eb2031ee36ee973bcb2df491f8a8ad93693401c59fff8e4474339e493c22cde9ef16573d444b2edfd7e2004c7a45daf8d76c64977f5ac797c60ccf485d727a8a80fadd601279703283e0d01de47edd8a09afabd3",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0400f4c96066815dceab393508654781",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "b4f6bfd1fbd6fc1ac15eca33a2ccfb8d",
+                  "SHA1": "aec37603f65f76e934b48db7110b8a8dd37629bc",
+                  "SHA256": "68a46e95363e8be55392bc78085b4ce19760a57c7b178ed7003bab0c6ceff268",
+                  "SHA384": "43da22b69ca42bf9cec9e73cb63dd43f2d8ff3e0d0b37bfdc192ea4ab29bfef609549ad21f2995b02ea97a85d07fe644"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert, Inc., CN=DigiCert Trusted G4 RSA4096 SHA256 TimeStamping CA",
+                "ValidFrom": "2022-03-23 00:00:00",
+                "ValidTo": "2037-03-22 23:59:59",
+                "Signature": "7d598ec093b66f98a94422017e66d6d82142e1b0182e104d13cf3053cebf18fbc7505de24b29fb708a0daa2969fc69c1cf1d07e93e60c8d80be55c5bd76d87fa842025343167cdb612966fc4504c621d0c0882a816bda956cf15738d012225ce95693f4777fb727414d7ffab4f8a2c7aab85cd435fed60b6aa4f91669e2c9ee08aace5fd8cbc6426876c92bd9d7cd0700a7cefa8bc754fba5af7a910b25de9ff285489f0d58a717665daccf072a323fac0278244ae99271bab241e26c1b7de2aebf69eb1799981a35686ab0a45c9dfc48da0e798fbfba69d72afc4c7c1c16a71d9c6138009c4b69fcd878724bb4fa349b9776691f1729ce94b0252a7377e9353ac3b1d08490f94cd397addff256399272c3d3f6ba7f166c341cd4fb6409b212140d0b71324cddc1d783ae49eade5347192d7266be43873aba6014fbd3f3b78ad4cadfbc4957bed0a5f33398741787a38e99ce1dd23fd1d28d3c7f9e8f1985ffb2bd87ef2469d752c1e272c26db6f157b1e198b36b893d4e6f2179959ca70f037bf9800df20164f27fb606716a166badd55c03a2986b098a02bed9541b73ad5159831b462090f0abd81d913febfa4d1f357d9bc04fa82de32df0489f000cd5dc2f9d0237f000be4760226d9f0657642a6298709472be67f1aa4850ffc9896f655542b1f80fac0f20e2be5d6fba92f44154ae7130e1ddb37381aa12bf6edd67cfc",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "073637b724547cd847acfd28662a5e5b",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "e4b8ad9932ff9205f580cf8fb2afbb86",
+                  "SHA1": "5301f7044d78bf94dd2b6e4871083a17fdba1dcc",
+                  "SHA256": "c3d01499a5d1d2f71e0f44e78fbfa4b8aadb43dd4f226401e0c1d7a6d53357fa",
+                  "SHA384": "84b5f399da5a4f4387269adfd951ef7d2197c29552ed2d2e449060664c3825d6bdb2acc3e563d999e54652f7384f445e"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)",
+                "ValidFrom": "2012-04-18 12:00:00",
+                "ValidTo": "2027-04-18 12:00:00",
+                "Signature": "19334a0c813337dbad36c9e4c93abbb51b2e7aa2e2f44342179ebf4ea14de1b1dbe981dd9f01f2e488d5e9fe09fd21c1ec5d80d2f0d6c143c2fe772bdbf9d79133ce6cd5b2193be62ed6c9934f88408ecde1f57ef10fc6595672e8eb6a41bd1cd546d57c49ca663815c1bfe091707787dcc98d31c90c29a233ed8de287cd898d3f1bffd5e01a978b7cda6dfba8c6b23a666b7b01b3cdd8a634ec1201ab9558a5c45357a860e6e70212a0b92364a24dbb7c81256421becfee42184397bba53706af4dff26a54d614bec4641b865ceb8799e08960b818c8a3b8fc7998ca32a6e986d5e61c696b78ab9612d93b8eb0e0443d7f5fea6f062d4996aa5c1c1f0649480",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "03f1b4e15f3a82f1149678b3d7d8475c",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "83f5de89f641d0fbf60248e10a7b9534",
+                  "SHA1": "382a73a059a08698d6eb98c87e1b36fc750933a4",
+                  "SHA256": "eec58131dc11cd7f512501b15fdbc6074c603b68ca91f7162d5a042054edb0cf",
+                  "SHA384": "4a25018683cabfb8ec2cad136334f37f33c89aa8540326322991d997c8adfb7faf06ab602ebd46630fe75fe3d2edc6b1"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert, Inc., CN=DigiCert Timestamp 2022 , 2",
+                "ValidFrom": "2022-03-29 00:00:00",
+                "ValidTo": "2033-03-14 23:59:59",
+                "Signature": "0d2d2374a6d1f5f8ea4b993f01e4f60ce4af169dd9b38c9782299c436f012dab38b57011bf84198b3f5de5864fbe933ade2a395a394ed88459a5bc1b98aae86cefd1486919385bcf89391d7070d94edf23226cd5dff659cba1c2ea4c76caa1dca12b96b89b55a91a6b7dd1f502094f82d6a57388c49880dfee4995b7b3ccc5a7ee0ee1ef1e388a9fef11c9314a58b6df387ccbfa5cf7e453bf6e0a7c7ed7de98d52965890fa29cc065f4012265c7ea5e74a65b3592507cf417a687644f3e46891663206bcbf27bd035e34a7048a9b6e71d60bd04221525700672a9443b694711d3eee9c7a03e4f10b93036e4f3aa6909a88b7e64a2659411fb6e32f1f5bb38adcdc09311d532784a4b372a4cf35cdcb685c0bb70305578d698fe546d7f71a9481a78dd46772e1b7ac0338af84a288c12a873cf2df9d323f29e19e00d9428a0ebdb1a51a095828e286ba4ce9d76dea973aa486a5943ae5feaf80f06429ddf066896fe2aa0745b6366de6b2cb878aa4d706df02cf107157e35b4e6b50ca299a5d7156b350e85d6e02ccce00c24b87c520b1e997cefc8c8c58c5869afab3de1cfcc7d15ae14bf8a71dfca97b1d847ea1c85e0454e121c142958cc6fd37fcbbec10e4a6f209caed973325908e72d92a11a11fe3298a65d2b97e08bd39ccc6db50dae47633847175b6f13da6a106e1f49b7445bb4080a875a59047611a1a77702131c",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0a7a4a889ec99942900663384d86979d",
+                "Version": 3,
+                "CertificateType": "Intermediate",
+                "IsCodeSigning": false,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "d49300b4e758e36a3832679763a83c58",
+                  "SHA1": "ec3075370fcea680e09497d44a4b246012f24160",
+                  "SHA256": "fa5e895ff2603de9e15939a00299836f73e5778058f22194f696d19e79a8b010",
+                  "SHA384": "13ab2eedcd7e712f635ca1da3dc30cd8d8e22cedcf5a2c4994181509dddbf76867d07925b9a514d123bc1d5cab41fe9f"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "0400f4c96066815dceab393508654781",
+                "Issuer": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)",
+                "Version": 1
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "Filename": "libwasys.sys",
+        "MD5": "c64767a1c4ac46caf10e88b266444a25",
+        "SHA1": "046d49a2852f740f6214b0e241479c8fed62bae9",
+        "SHA256": "04fda396f42384d9295fe306336ee4a685a0c341debdc27ddf9169f0336b46a6",
+        "Imphash": "e28794f8ba03b47b4b3d6c8bc23f589f",
+        "Authentihash": {
+          "MD5": "7ef743f66751ee553cdeb0a032a33a21",
+          "SHA1": "c6c4bee94ab1b6151a48d1c7c34fd65bd8d2c69c",
+          "SHA256": "e3e7db4209966247313576c1a8db3810dbf3d3bba830e3a02fb05b0473d7f798"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "1d717a310c342c26aba51c57ff64f971",
+          "SHA1": "919f4e0c0d7b4e67607514c7299bdb876ee5c4d8",
+          "SHA256": "c6e66bc9b0b3fe30db831f123a94d992f2e3a3c0155cc18ee877c476f8b1345e"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.167334103346381,
+            "Virtual Size": "0x1188"
+          },
+          ".rdata": {
+            "Entropy": 4.216810013849339,
+            "Virtual Size": "0xbdc"
+          },
+          ".data": {
+            "Entropy": 2.0394503372172323,
+            "Virtual Size": "0x238"
+          },
+          ".pdata": {
+            "Entropy": 4.045499535553896,
+            "Virtual Size": "0x258"
+          },
+          "PAGE": {
+            "Entropy": 6.227670939328857,
+            "Virtual Size": "0x1c4b"
+          },
+          "INIT": {
+            "Entropy": 5.270352847675557,
+            "Virtual Size": "0x6ea"
+          },
+          ".rsrc": {
+            "Entropy": 3.3352965350178323,
+            "Virtual Size": "0x388"
+          },
+          ".reloc": {
+            "Entropy": 3.5277561990988673,
+            "Virtual Size": "0x2c"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2021-01-20 16:46:00",
+        "Description": "OESIS V4 Helper Driver (x64)",
+        "Company": "OPSWAT, Inc.",
+        "InternalName": "libwasys.sys",
+        "OriginalFilename": "libwasys.sys",
+        "FileVersion": "10.3.85.0",
+        "Product": "OESIS V4 Kernel Driver",
+        "ProductVersion": "10.3.85.0",
+        "Copyright": " © OPSWAT, Inc.  All rights reserved.",
+        "MachineType": "AMD64",
+        "Imports": [
+          "ntoskrnl.exe"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "ExAllocatePoolWithTag",
+          "ExFreePoolWithTag",
+          "IofCompleteRequest",
+          "IoCreateFile",
+          "IoCreateSymbolicLink",
+          "IoDeleteDevice",
+          "IoDeleteSymbolicLink",
+          "ObReferenceObjectByHandle",
+          "ObfDereferenceObject",
+          "ZwQueryInformationFile",
+          "ZwSetInformationFile",
+          "ZwReadFile",
+          "ZwClose",
+          "ZwOpenKey",
+          "ZwFlushKey",
+          "ZwSetValueKey",
+          "ZwDeviceIoControlFile",
+          "PsLookupProcessByProcessId",
+          "ObOpenObjectByPointer",
+          "FsRtlAcquireFileExclusive",
+          "FsRtlReleaseFile",
+          "_vsnwprintf",
+          "ZwCreateJobObject",
+          "ZwAssignProcessToJobObject",
+          "ZwTerminateJobObject",
+          "IoFileObjectType",
+          "PsProcessType",
+          "MmGetSystemRoutineAddress",
+          "RtlInitUnicodeString",
+          "RtlFreeUnicodeString",
+          "ZwSetSecurityObject",
+          "IoDeviceObjectType",
+          "IoCreateDevice",
+          "RtlGetDaclSecurityDescriptor",
+          "RtlGetGroupSecurityDescriptor",
+          "RtlGetOwnerSecurityDescriptor",
+          "RtlGetSaclSecurityDescriptor",
+          "SeCaptureSecurityDescriptor",
+          "_snwprintf",
+          "RtlLengthSecurityDescriptor",
+          "SeExports",
+          "RtlCreateSecurityDescriptor",
+          "_wcsnicmp",
+          "wcschr",
+          "RtlAbsoluteToSelfRelativeSD",
+          "RtlAddAccessAllowedAce",
+          "RtlLengthSid",
+          "IoIsWdmVersionAvailable",
+          "RtlSetDaclSecurityDescriptor",
+          "ZwQueryValueKey",
+          "ZwCreateKey",
+          "KeBugCheckEx"
+        ],
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=BE, O=GlobalSign nv,sa, CN=GlobalSign Timestamping CA , G2",
+                "ValidFrom": "2011-04-13 10:00:00",
+                "ValidTo": "2028-01-28 12:00:00",
+                "Signature": "4e5e56901e46b4d94931f3bb1739281bc216ddfd41dc0905049b6fb2a29ad6992e40990055b5ea3fa52076d38634d417cc553ac782eeefa8babcd8069f1550dfcd167b523a02d7191afdaff0785ce04bc518df3a241edaacb8a95804020730dbb0125efe31bef00448f4f070f83a5e5683cf3dfb0dbcf4c5ed979db9d4dba52784e3389b8ba735864420a43b6da46a0ba183fd28ebdaef28f6cc885dfb0a3b00abe021ebe22f356c0f8e344597eba2f79933357ecb9a8abb454de73f9fc2d98afa65b26ec77e65ffe892e12c31a2f7b02736488f266f3bee4d761f79c3e57f9635bc2d0ecc01b08e7fff518080a792d4b34446648c874f166307314b63b0dff3",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "0400000000012f4ee152d7",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "e140543fe3256027cfa79fc3c19c1776",
+                  "SHA1": "c655f94eb1ecc93de319fc0c9a2dc6c5ec063728",
+                  "SHA256": "3ca71e85908ff67368e4dc00253f5691b9e6d50c966e7784143d75fb92aa3448",
+                  "SHA384": "d9d366f9328f2b55ee19a32cc5fd5148b81d764282fe5dc196c872ae249caa51d2c212ef39f33945dfe0cda81925e326"
+                }
+              },
+              {
+                "Subject": "C=SG, O=GMO GlobalSign Pte Ltd, CN=GlobalSign TSA for MS Authenticode , G2",
+                "ValidFrom": "2016-05-24 00:00:00",
+                "ValidTo": "2027-06-24 00:00:00",
+                "Signature": "8fa91a916d04a637200e8396de23d36b6e1f6edd643d682122b5f84736698ee1a545c724a222b72909cc545aaec6bccd638eb33d5048e5b4ccaecd928d9e288b134a11aabda3efd3b236fcb4a172bf6d9763798c44bc702f7ef3bcdd8253ab1af6ebfa1c97bcb6379ca41c30bcabbc2d4736df922003e871c658f675059a34f00b595a824434aa80e42f84f6475d96c9b6caca9db7a6bae450d3d437b8ba200ed0d3922a5bc459bba16ddb3cce449dc1382aade38dbdcd09771a10be670a02366488b9b31b26eee79e60c446a8bc61336ccf4eb99cb96af09f37feb53d4f9ad34dffde208e4e97a6fd9f09bc4dca1876c9b04d8550f280d21d06f5580407b118",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "1121d699a764973ef1f8427ee919cc534114",
+                "Version": 3,
+                "CertificateType": "Intermediate",
+                "IsCodeSigning": false,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "acb5170547d76873f1e4ff18ed5de2eb",
+                  "SHA1": "bd6e261e75b807381bada7287de04d259258a5fa",
+                  "SHA256": "4783380498acf592286ef2dea0fcc5bdea3f54d5e374d3e3497df9d5f662cfb6",
+                  "SHA384": "4f428f115cf3d008248f15f32007fc7c54bd454e1b48b765776b4c87c23ab8818d8fbcbb3646d35eca012b025260a3b8"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance EV Root CA",
+                "ValidFrom": "2011-04-15 19:45:33",
+                "ValidTo": "2021-04-15 19:55:33",
+                "Signature": "208cc159ed6f9c6b2dc14a3e751d454c41501cbd80ead9b0928b062a133f53169e56396a8a63b6782479f57db8b947a10a96c2f6cbbda2669f06e1acd279090efd3cdcac020c70af3f1bec787ed4eb4b056026d973619121edb06863e09712ab6fa012edd99fd2da273cb3e456f9d1d4810f71bd427ca689dccdd5bd95a2abf193117de8ac3129a85d6670419dfc75c9d5b31a392ad08505508bac91cac493cb71a59da4946f580cfa6e20c40831b5859d7e81f9d23dca5b18856c0a86ec22091ba574344f7f28bc954aab1db698b05d09a477767eefa78e5d84f61824cbd16da6c3a19cc2107580ff9d32fde6cf433a82f7ce8fe1722a9b62b75fed951a395c2f946d48b7015f332fbbdc2d73348904420a1c8b79f9a3fa17effaa11a10dfe0b2c195eb5c0c05973b353e18884ddb6cbf24898dc8bdd89f7b393a24a0d5dfd1f34a1a97f6a66f7a1fb090a9b3ac013991d361b764f13e573803afce7ad2b590f5aedc3999d5b63c97eda6cb16c77d6b2a4c9094e64c54fd1ecd20ecce689c8758e96160beeb0ec9d5197d9fe978bd0eac2175078fa96ee08c6a2a6b9ce3e765bcbc2d3c6ddc04dc67453632af0481bca8006e614c95c55cd48e8e9f2fc13274bdbd11650307cdefb75e0257da86d41a2834af8849b2cfa5dd82566f68aa14e25954feffeaeeefea9270226081e32523c09fcc0f49b235aa58c33ac3d9169410",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "61204db4000000000027",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "8e3ffc222fbcebdbb8b23115ab259be7",
+                  "SHA1": "ee20bff28ffe13be731c294c90d6ded5aae0ec0e",
+                  "SHA256": "59826b69bc8c28118c96323b627da59aaca0b142cc5d8bad25a8fcfd399aa821",
+                  "SHA384": "f2dab7e56a33298654924501499487f6ba72c7d9477476a186e1ed7a9be031fade0e35ac09eff5e56bbbab95ae5374e7"
+                }
+              },
+              {
+                "Subject": "JURISDICTION_OF_INCORPORATION_C=US, JURISDICTION_OF_INCORPORATION_SP=California, BUSINESS_CATEGORY=Private Organization, serialNumber=C2425568, C=US, ST=California, L=San Francisco, O=OPSWAT, Inc., CN=OPSWAT, Inc.",
+                "ValidFrom": "2020-04-14 00:00:00",
+                "ValidTo": "2021-04-21 12:00:00",
+                "Signature": "40ec2df72b4f35b328cdfff45016f0b9a6ef08dc2a50e29ce7a509c90ad78e927e30a4bca43e382ec20011693908984cc087478bad64c6969e5440b0dc89680a30053c336c32ba77abb242199ad825575513e94536abacf5b695efaa2539fb83f4c4b625095cdbda1357d6dba794d12234ca2a9066cfc221c9f64f0e230c828d59c101aed47916d604e29d3420894223a568628a70e1f8ddca1f09216bcda68bcb86e9a1e16b5038aed4934174defc9bdd475eb133cd8d71975e391a46910c9db3ef87d83c5aa6001ca77433d3149bfb2eea362df201ed9b78c32f0cf5bb70f093b310a7ad02b151128184086fb74fc4cdbf48afc38261873f522248229bdcc8",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0832209918e2ca0eb3c5f0e4326b3108",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "9ccd6733a6bb8c5f242ab05625cbc2cd",
+                  "SHA1": "9353901afa60e7336a8f342deafbd2086ea73263",
+                  "SHA256": "aa096601f1c000a14d20010a879846fe6ff74819777c1ff614179a030a54d599",
+                  "SHA384": "6e09f685df0e59d631252d90cec2980bfc30ac16037f28bb0eb4ce9296d7316eb3af58982d662fdbdb1fffb021144dbf"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)",
+                "ValidFrom": "2012-04-18 12:00:00",
+                "ValidTo": "2027-04-18 12:00:00",
+                "Signature": "19334a0c813337dbad36c9e4c93abbb51b2e7aa2e2f44342179ebf4ea14de1b1dbe981dd9f01f2e488d5e9fe09fd21c1ec5d80d2f0d6c143c2fe772bdbf9d79133ce6cd5b2193be62ed6c9934f88408ecde1f57ef10fc6595672e8eb6a41bd1cd546d57c49ca663815c1bfe091707787dcc98d31c90c29a233ed8de287cd898d3f1bffd5e01a978b7cda6dfba8c6b23a666b7b01b3cdd8a634ec1201ab9558a5c45357a860e6e70212a0b92364a24dbb7c81256421becfee42184397bba53706af4dff26a54d614bec4641b865ceb8799e08960b818c8a3b8fc7998ca32a6e986d5e61c696b78ab9612d93b8eb0e0443d7f5fea6f062d4996aa5c1c1f0649480",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "03f1b4e15f3a82f1149678b3d7d8475c",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "83f5de89f641d0fbf60248e10a7b9534",
+                  "SHA1": "382a73a059a08698d6eb98c87e1b36fc750933a4",
+                  "SHA256": "eec58131dc11cd7f512501b15fdbc6074c603b68ca91f7162d5a042054edb0cf",
+                  "SHA384": "4a25018683cabfb8ec2cad136334f37f33c89aa8540326322991d997c8adfb7faf06ab602ebd46630fe75fe3d2edc6b1"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "0832209918e2ca0eb3c5f0e4326b3108",
+                "Issuer": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA (SHA2)",
+                "Version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "Id": "0f59ce3b-20ac-41ba-8010-2abc74827eb8",
     "Tags": [
       "cpuz.sys"
@@ -81275,18 +81785,20 @@
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "",
-      "Description": "AMD Special Tools Driver AmdTools64.sys 1.7.16.219 exposes physical-memory mapping through IOCTL 0xFFF028A4. Static analysis confirms that the handler passes a caller-supplied physical address and length to MmMapIoSpace, constructs an MDL, and maps the range into the caller's user-mode address space with MmMapLockedPagesSpecifyCache, without a physical-range authorization check. The device uses FILE_DEVICE_SECURE_OPEN and a security descriptor granting access only to LocalSystem and Builtin Administrators. This is an administrator/SYSTEM-gated physical-memory primitive, not a standard-user entry point. The PnP driver must be installed and its device interface started before the request can be used. The assessment is limited to this exact sample and does not assert an affected-version range.",
+      "Description": "AMD Special Tools Driver AmdTools64.sys versions 1.7.16.218 and 1.7.16.219 expose physical-memory mapping through IOCTL 0xFFF028A4. Static inspection of both samples shows caller-supplied physical addresses and lengths reaching MmMapIoSpace and user-mode MDL mappings without a physical-range authorization check. The device security descriptor restricts access to LocalSystem and Builtin Administrators. The PnP device interface must be installed and started before use. The 1.7.16.218 submission includes a screenshot of a SYSTEM shell reported from an isolated VM; that runtime result was not independently reproduced. No affected-version range is asserted.",
       "Usecase": "Map physical memory into user mode across the administrator-to-kernel boundary.",
       "Privileges": "Administrator or LocalSystem with access to the started PnP device.",
       "OperatingSystem": "Windows"
     },
     "Resources": [
       "https://github.com/magicsword-io/LOLDrivers/issues/430",
-      "https://github.com/methmind/amdtools64"
+      "https://github.com/methmind/amdtools64",
+      "https://github.com/magicsword-io/LOLDrivers/pull/473",
+      "https://github.com/CatCaller/AMDTools"
     ],
     "Acknowledgement": {
-      "Person": "Leonid (methmind)",
-      "Handle": "@methmind"
+      "Person": "Leonid (methmind), CatCaller, junho462, bob-dev-byovd",
+      "Handle": "@methmind, @CatCaller, @junho462, @bob-dev-byovd"
     },
     "Detection": [],
     "KnownVulnerableSamples": [
@@ -81532,6 +82044,227 @@
         "Signature": [
           "Advanced Micro Devices Inc."
         ]
+      },
+      {
+        "Filename": "AmdTools64.sys",
+        "SHA256": "eee1fb0995f1916820e25d6b4ee03ed7276ab66894f9654d30e6c33e759a0011",
+        "MD5": "f3063aeff8b4ca56c6d870302ae80a0d",
+        "SHA1": "70fc66de22abaa47a88f888b6f3b59e3ea1eceb3",
+        "FileVersion": "1.7.16.218",
+        "ProductVersion": "1.7.16.218",
+        "Imphash": "6266125b2b152310922a52fb871984c8",
+        "Sections": {
+          ".text": {
+            "Entropy": 6.347848606570956,
+            "Virtual Size": "0x758c"
+          },
+          ".rdata": {
+            "Entropy": 5.080265186135274,
+            "Virtual Size": "0x19e4"
+          },
+          ".data": {
+            "Entropy": 2.800586052256417,
+            "Virtual Size": "0x5a90"
+          },
+          ".pdata": {
+            "Entropy": 4.645438085425932,
+            "Virtual Size": "0x6e4"
+          },
+          "PAGE": {
+            "Entropy": 6.229626912387258,
+            "Virtual Size": "0x1c4b"
+          },
+          "INIT": {
+            "Entropy": 5.467410366643452,
+            "Virtual Size": "0xd92"
+          },
+          ".rsrc": {
+            "Entropy": 3.326543401617388,
+            "Virtual Size": "0x3c0"
+          },
+          ".reloc": {
+            "Entropy": 4.790851611074821,
+            "Virtual Size": "0x134"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2020-05-27 06:45:35",
+        "Description": "AMD Tools Driver",
+        "Company": "",
+        "InternalName": "AMDToolsDriver",
+        "OriginalFilename": "amdtools64.sys",
+        "Product": "AMD Tools Driver",
+        "Copyright": "Copyright© 2003-2020. AMD Confidential - Advance Information",
+        "MachineType": "AMD64",
+        "Imports": [
+          "ntoskrnl.exe",
+          "HAL.dll"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "KeInitializeEvent",
+          "KeEnterCriticalRegion",
+          "KeLeaveCriticalRegion",
+          "KeWaitForSingleObject",
+          "KeQueryActiveProcessors",
+          "ExAllocatePoolWithTag",
+          "ExFreePoolWithTag",
+          "MmProbeAndLockPages",
+          "MmUnlockPages",
+          "MmBuildMdlForNonPagedPool",
+          "MmMapLockedPagesSpecifyCache",
+          "MmUnmapLockedPages",
+          "MmAllocatePagesForMdl",
+          "MmFreePagesFromMdl",
+          "MmMapIoSpace",
+          "MmUnmapIoSpace",
+          "MmAllocateContiguousMemorySpecifyCache",
+          "MmFreeContiguousMemorySpecifyCache",
+          "IoAllocateMdl",
+          "IoBuildDeviceIoControlRequest",
+          "IofCallDriver",
+          "IoFreeMdl",
+          "IoGetDeviceObjectPointer",
+          "ObfDereferenceObject",
+          "ZwSetInformationThread",
+          "ObReferenceObjectByName",
+          "__C_specific_handler",
+          "IoDriverObjectType",
+          "KeInsertQueueDpc",
+          "KeAcquireSpinLockAtDpcLevel",
+          "KeAcquireSpinLockRaiseToDpc",
+          "KeReleaseSpinLock",
+          "KfRaiseIrql",
+          "ExInterlockedInsertTailList",
+          "ExInterlockedRemoveHeadList",
+          "IoCancelIrp",
+          "IofCompleteRequest",
+          "IoReleaseCancelSpinLock",
+          "RtlFreeUnicodeString",
+          "KeSetEvent",
+          "IoDeleteDevice",
+          "IoDetachDevice",
+          "IoSetDeviceInterfaceState",
+          "PoSetPowerState",
+          "ExFreePool",
+          "PoRequestPowerIrp",
+          "PoCallDriver",
+          "PoStartNextPowerIrp",
+          "KeInitializeDpc",
+          "KeInitializeSpinLock",
+          "IoAllocateDriverObjectExtension",
+          "IoAttachDeviceToDeviceStack",
+          "IoGetDriverObjectExtension",
+          "RtlInitAnsiString",
+          "RtlAnsiStringToUnicodeString",
+          "KeInitializeMutex",
+          "KeReleaseMutex",
+          "PsCreateSystemThread",
+          "IoAllocateErrorLogEntry",
+          "IoWriteErrorLogEntry",
+          "IoRegisterDeviceInterface",
+          "ObReferenceObjectByHandle",
+          "ZwClose",
+          "swprintf",
+          "KeDelayExecutionThread",
+          "KeQueryTimeIncrement",
+          "ZwQueryValueKey",
+          "KeLowerIrql",
+          "RtlCompareMemory",
+          "KeReleaseSpinLockFromDpcLevel",
+          "RtlInitUnicodeString",
+          "MmGetSystemRoutineAddress",
+          "ZwSetSecurityObject",
+          "IoDeviceObjectType",
+          "IoCreateDevice",
+          "ObOpenObjectByPointer",
+          "RtlGetDaclSecurityDescriptor",
+          "RtlGetGroupSecurityDescriptor",
+          "RtlGetOwnerSecurityDescriptor",
+          "RtlGetSaclSecurityDescriptor",
+          "SeCaptureSecurityDescriptor",
+          "_snwprintf",
+          "RtlLengthSecurityDescriptor",
+          "SeExports",
+          "RtlCreateSecurityDescriptor",
+          "_wcsnicmp",
+          "wcschr",
+          "RtlAbsoluteToSelfRelativeSD",
+          "RtlAddAccessAllowedAce",
+          "RtlLengthSid",
+          "IoIsWdmVersionAvailable",
+          "RtlSetDaclSecurityDescriptor",
+          "ZwOpenKey",
+          "ZwSetValueKey",
+          "ZwCreateKey",
+          "HalGetBusDataByOffset",
+          "HalSetBusDataByOffset",
+          "KeStallExecutionProcessor"
+        ],
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=US, ST=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows Hardware Compatibility Publisher",
+                "ValidFrom": "2020-03-11 17:47:59",
+                "ValidTo": "2021-03-05 17:47:59",
+                "Signature": "8cc6ee377f0a5d3ad001a9225b474ef5fc90271aaeccffb747abac30d630dca531d7d2f4138fa82ddd6e4417a83d735fb18f7f8470e9a946e4d67851baf4717f320f022d26bb3b5f30ba51e0f15c69c868c4f9f1d2cae2e8f8d74874d1e37c6ac0ec5c36b7a9ed3788d8a0bb9ac7d4aa3881a922e48cc29c9d54ce28a8216f8e30b120ed954bf11da41ef5ec477157740eefb1af563e10055115704a96a54167a79f43700b19842707e653edcde103dec04cd39b5d22e04da33ee2a844acf0e0cfc96a7fc6c21b2f08536204bc0c1500ee2ff84c572b2d5c619e50e6edac3756c001fbeb5a7066c9639ced5b7a09debba36077f545d84513f5ca07fc16d18953",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "3300000097d79f85906ea318a4000000000097",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "af9faf08df320dec5f71177c81569769",
+                  "SHA1": "e622ea2688b80ce2554a9553f2cadc9c7a040bc9",
+                  "SHA256": "b2d0043751fa7483f5d5fb7f328b4a5b87de31a4324dd50ab6113c76fb827b51",
+                  "SHA384": "e1dcb7b77259e1231ac8f053ec2f9b7ade02c506451eb8272715526a7c1217eed0948eaeae297422aecdf88f41ca6b66"
+                }
+              },
+              {
+                "Subject": "C=US, ST=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows Third Party Component CA 2012",
+                "ValidFrom": "2012-04-18 23:48:38",
+                "ValidTo": "2027-04-18 23:58:38",
+                "Signature": "5a8a67daccd5fd0d264177bf0a4678b4b3de12692b7723c2652f015fd203f461ba509d2e8c3972f36c3e6ab11e766decb7f382dcccbbc56970287366173f54ebee011648c446d91b80ae813a8d0f796d68b09eea2d3f39d3ca387ebd5e7c086e19dcc6c2f438336861e2524783e1000156d2bacb878205310a418b4ee77f5f5fed5fd3392d45eba213bffd1ec298417161165fc80a70257c59693124e471e70abb0417f79f721ec9d2bb1abe3d02fe090cb243b4591a99539396215fe0d6b72601429536ac27fdbef48577683d18bdf4be98882211865216f345ec0397107087a37043713cdbc98603170cf5735bc67de15c64edd7c548d7ed32e2d1aad3cfa7f6574e61f977eb67f288b3de00da038fd08a34373e1dd862b8d2b1f3e12f8b723b81967c6ffcec667672601b24f2a0896d5b6d002eef28dd868705c2b4b9e5be64c22af24a155c98e2c42785ff52e3627e0fb2020bd766c70ab2d33d200414503259830a7d9bed5a38120152ba2f5e20728e4af1fde771028c3be107bec973f4dd47d8b4efb4a4b330b9893e76cab90098567eabea8ab8a5d038ab6977130b142fe9aa411ff7babd3a2b348aee0aab63e663f788248e200d2b3b9de3c24952ac9f1f0e393b5dd46e506ae67d523aaa7c3315290d265e0158a74ea93d7a846f743f609fe4324f3600af6d71d33ea646655f8174f1fec171da4ca0415a82ddf11f",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "610baac1000000000009",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "a569061297e8e824767dbc3184a69bea",
+                  "SHA1": "adbb26a587a8f44b4fccaecb306f980d1c55a150",
+                  "SHA256": "cec1afd0e310c55c1dcc601ab8e172917706aa32fb5eaf826813547fdf02dd46",
+                  "SHA384": "e947cac936803f5683196e4ff1b259096073395d0b908522ddce90d57597c9f7b57f7ddcdbe021ba863d843c340da8ba"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "3300000097d79f85906ea318a4000000000097",
+                "Issuer": "C=US, ST=Washington, L=Redmond, O=Microsoft Corporation, CN=Microsoft Windows Third Party Component CA 2012",
+                "Version": 1
+              }
+            ]
+          }
+        ],
+        "Authentihash": {
+          "MD5": "ec390271394820e0adf14576230eb86c",
+          "SHA1": "a35c812912756cb3c93f57d833eda14c8d604786",
+          "SHA256": "6d450227f24c6f9025655c21fe63623cbf8dae6a86a30ad212208de1530c910f"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "033ef4d8ce5b474858e13e3f1080404b",
+          "SHA1": "1f5f7afa9558a91117befd79bb5f88d6855cd500",
+          "SHA256": "5b6766f3443b7611b17e18d2b702c49dd41876ac3fcf2650fecaadf342698e16"
+        },
+        "LoadsDespiteHVCI": "UNKNOWN"
       }
     ]
   },
@@ -87588,7 +88321,8 @@
       "https://github.com/Exploitables/CVE-2015-2291",
       "https://github.com/Tare05/Intel-CVE-2015-2291",
       "https://github.com/TheCruZ/kdmapper",
-      "https://gist.github.com/k4nfr3/af970e7facb09195e56f2112e1c9549c"
+      "https://gist.github.com/k4nfr3/af970e7facb09195e56f2112e1c9549c",
+      "https://blog.talosintelligence.com/ignore-all-instructions-and-read-this-blog-the-state-of-ai-analysis-evasion-in-malware/"
     ],
     "Detection": [
       {
@@ -360097,6 +360831,279 @@
     ]
   },
   {
+    "Id": "a2a53148-ff02-4d63-9269-e47966431c62",
+    "Tags": [
+      "heysafe_drv.sys"
+    ],
+    "Verified": "TRUE",
+    "Author": "rommel193911-sudo",
+    "Created": "2026-10-15",
+    "MitreID": "T1562.001",
+    "Category": "malicious",
+    "Commands": {
+      "Command": "",
+      "Description": "heysafe_drv.sys is a HeySafe-X protection minifilter submitted as a malicious process killer in issue #468. Static analysis verifies a caller-validated communication port whose message opcode 0x67 queues process-tree termination and attempts to clear ProcessBreakOnTermination before ZwTerminateProcess. The termination path excludes several core Windows processes and registered HeySafe PIDs. The object callback restricts handle access to protected HeySafe processes and can queue termination of werfault.exe. The cited callback helper does not select Task Manager, Process Explorer, WinDbg or Visual Studio for termination. Work items use DelayedWorkQueue. The catalog verification covers the sample identity and these static capabilities; malicious intent, a trusted-caller authorization bypass, protected-process termination, stack spoofing and certificate theft were not established by this review. The embedded code-signing certificate expired in 2013 and has no signing timestamp. Current Windows loading and HVCI behavior remain unknown.",
+      "Usecase": "Kernel-mode process-tree termination and restriction of handle access to HeySafe processes.",
+      "Privileges": "Administrator/SYSTEM access plus acceptance by the filter-port caller validation, or the driver-triggered callback path.",
+      "OperatingSystem": "Windows (current loading and HVCI behavior unknown)"
+    },
+    "Resources": [
+      "https://github.com/magicsword-io/LOLDrivers/issues/468",
+      "https://www.virustotal.com/gui/file/a188993dd8cac6628f97dfd390cfab8a9e510d581c39e32da66cbc4b559db27d",
+      "https://heysafex.com/"
+    ],
+    "Detection": [],
+    "Acknowledgement": {
+      "Person": "rommel193911-sudo",
+      "Handle": "@rommel193911-sudo"
+    },
+    "KnownVulnerableSamples": [
+      {
+        "Filename": "heysafe_drv.sys",
+        "MD5": "752d3a88a9f7d2fee7bd0df2dbcd7e69",
+        "SHA1": "d4ecc7d58c8a7645be17d20901ecaa786fd6081c",
+        "SHA256": "a188993dd8cac6628f97dfd390cfab8a9e510d581c39e32da66cbc4b559db27d",
+        "Signature": [
+          "Shanxi Shiheng Rail Technology Co., Ltd"
+        ],
+        "Date": "",
+        "Publisher": "Shanxi Shiheng Rail Technology Co., Ltd",
+        "Company": "Windows (R) Win 7 DDK provider",
+        "Description": "HeySafe-X thin protection filter driver",
+        "Product": "Windows (R) Win 7 DDK driver",
+        "ProductVersion": "10.0.10011.16384",
+        "FileVersion": "10.0.10011.16384",
+        "MachineType": "AMD64",
+        "OriginalFilename": "heysafe_drv.sys",
+        "Authentihash": {
+          "MD5": "268200000129d81e4c8a28c7e5cc3f88",
+          "SHA1": "278a5b6956b824cd559cf4df893733c0294af16a",
+          "SHA256": "46a0fd304b596f1e92f7e1ec2f640fdffcc4e30afbc9ae50027dcf4c81e97206"
+        },
+        "InternalName": "heysafe_drv.sys",
+        "Copyright": "Copyright (C) 2026 HeySafe",
+        "Imports": [
+          "FLTMGR.SYS",
+          "ntoskrnl.exe",
+          "ksecdd.sys"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "FltRegisterFilter",
+          "FltUnregisterFilter",
+          "FltStartFiltering",
+          "FltGetFileNameInformation",
+          "FltReleaseFileNameInformation",
+          "FltParseFileNameInformation",
+          "FltReadFile",
+          "FltQueryInformationFile",
+          "FltCreateCommunicationPort",
+          "FltCloseCommunicationPort",
+          "FltBuildDefaultSecurityDescriptor",
+          "FltFreeSecurityDescriptor",
+          "FltLockUserBuffer",
+          "FltCloseClientPort",
+          "FltSendMessage",
+          "KeAcquireSpinLockRaiseToDpc",
+          "KeReleaseSpinLock",
+          "KeBugCheckEx",
+          "ExAllocatePool2",
+          "ExFreePoolWithTag",
+          "ProbeForRead",
+          "ExQueueWorkItem",
+          "CmUnRegisterCallback",
+          "CmRegisterCallbackEx",
+          "CmCallbackGetKeyObjectIDEx",
+          "CmCallbackReleaseKeyObjectIDEx",
+          "MmMapLockedPagesSpecifyCache",
+          "IoGetCurrentProcess",
+          "IoGetTopLevelIrp",
+          "IoSetTopLevelIrp",
+          "ObfDereferenceObject",
+          "ObRegisterCallbacks",
+          "ObUnRegisterCallbacks",
+          "ZwCreateFile",
+          "ZwSetInformationFile",
+          "ZwWriteFile",
+          "ZwClose",
+          "ZwCreateKey",
+          "ZwOpenKey",
+          "ZwQueryValueKey",
+          "ZwSetValueKey",
+          "KeInitializeSpinLock",
+          "PsSetCreateThreadNotifyRoutine",
+          "PsRemoveCreateThreadNotifyRoutine",
+          "PsSetLoadImageNotifyRoutine",
+          "PsRemoveLoadImageNotifyRoutine",
+          "PsGetCurrentProcessId",
+          "PsGetProcessId",
+          "PsGetThreadProcessId",
+          "ZwTerminateProcess",
+          "ZwOpenProcess",
+          "KeStackAttachProcess",
+          "KeUnstackDetachProcess",
+          "SeLocateProcessImageName",
+          "PsLookupProcessByProcessId",
+          "ZwDeleteFile",
+          "_vsnwprintf",
+          "ZwQuerySystemInformation",
+          "PsGetProcessImageFileName",
+          "PsGetProcessInheritedFromUniqueProcessId",
+          "ZwSetInformationProcess",
+          "__C_specific_handler",
+          "__chkstk",
+          "PsProcessType",
+          "PsThreadType",
+          "RtlCompareMemory",
+          "KeClearEvent",
+          "KeSetEvent",
+          "KeWaitForSingleObject",
+          "ProbeForWrite",
+          "PsCreateSystemThread",
+          "PsTerminateSystemThread",
+          "ObReferenceObjectByHandle",
+          "ZwQueryInformationFile",
+          "ZwReadFile",
+          "PsGetProcessCreateTimeQuadPart",
+          "IofCallDriver",
+          "IofCompleteRequest",
+          "IoCreateDevice",
+          "IoDeleteDevice",
+          "IoDetachDevice",
+          "IoGetDeviceObjectPointer",
+          "IoAttachDeviceToDeviceStackSafe",
+          "PsInitialSystemProcess",
+          "KeInitializeEvent",
+          "KeGetCurrentIrql",
+          "DbgPrint",
+          "RtlEqualUnicodeString",
+          "MmGetSystemRoutineAddress",
+          "RtlInitUnicodeString",
+          "PsSetCreateProcessNotifyRoutineEx",
+          "BCryptFinishHash",
+          "BCryptHashData",
+          "BCryptCreateHash",
+          "BCryptCloseAlgorithmProvider",
+          "BCryptGetProperty",
+          "BCryptOpenAlgorithmProvider",
+          "BCryptDestroyHash"
+        ],
+        "PDBPath": "",
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=CN, ST=Shanxi, L=Taiyuan, O=Shanxi Shiheng Rail Technology Co., Ltd, OU=Digital ID Class 3 , Microsoft Software Validation v2, CN=Shanxi Shiheng Rail Technology Co., Ltd",
+                "ValidFrom": "2012-05-28 00:00:00",
+                "ValidTo": "2013-05-28 23:59:59",
+                "Signature": "7bb1598fe794ee97d3d6342c2d70a590ed7d83e2c5fcb24b9d358532d8a5c9d339afd634224882e8f2ca126a73515dd6b8c34e3f25fddfc5ceda53429265f6a7b6c2210689e299576a8cc22c9dcf4d200b7154edcd9de643b5ed0e4259cbf62310490201ee8a422e870379d99c5831e8f81ae7f9376f17fd9ab5a9bbea7165c96098444f3f17f8379a779a9b889a03fbe3e92339a86b8410a8a3951e0d215461dfb00df335fe5779f7551aa6e6111741918fc711c04e5714d52be1355e2795e05b97d900131f1490eae4b20bd4584e1941e9f71fadacf88753186f9be74876c78de6fea829eb1aac547bceaddf07c20c24ebd6d4ce45a7f0b88dc3946743fad6",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0b77a42478f55385522f3df9ba38bf9e",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "6a49d0b0217a8582a2f8079db780b4c5",
+                  "SHA1": "aaaaa42c6444a1ca15bba9d0b515914c3349442e",
+                  "SHA256": "d5e525a5713dc8e06611c0cdaed37e17396783c11dff380da85ccb4be3c12807",
+                  "SHA384": "8b8546c969f17129ac7b27e657c43af04b424186fc3a1665b2d93f89f4846d30349410b0ec21cdcd446a0409fe7ba217"
+                }
+              },
+              {
+                "Subject": "C=US, O=VeriSign, Inc., OU=VeriSign Trust Network, OU=(c) 2006 VeriSign, Inc. , For authorized use only, CN=VeriSign Class 3 Public Primary Certification Authority , G5",
+                "ValidFrom": "2011-02-22 19:25:17",
+                "ValidTo": "2021-02-22 19:35:17",
+                "Signature": "812a82168c34672be503eb347b8ca2a3508af45586f11e8c8eae7dee0319ce72951848ad6211fd20fd3f4706015ae2e06f8c152c4e3c6a506c0b36a3cf7a0d9c42bc5cf819d560e369e6e22341678c6883762b8f93a32ab57fbe59fba9c9b2268fcaa2f3821b983e919527978661ee5b5d076bcd86a8e26580a8e215e2b2be23056aba0cf347934daca48c077939c061123a050d89a3ec9f578984fbecca7c47661491d8b60f195de6b84aacbc47c8714396e63220a5dc7786fd3ce38b71db7b9b03fcb71d3264eb1652a043a3fa2ead59924e7cc7f233424838513a7c38c71b242228401e1a461f17db18f7f027356cb863d9cdb9645d2ba55eefc629b4f2c7f821cc04ba57fd01b6abc667f9e7d3997ff4f522fa72f5fdff3a1c423aa1f98018a5ee8d1cd4669e4501feaaeefffb178f30f7f1cd29c59decb5d549003d85b8cbbb933a276a49c030ae66c9f723283276f9a48356c848ce5a96aaa0cc0cc47fb48e97af6de35427c39f86c0d6e473089705dbd054625e0348c2d59f7fa7668cd09db04fd4d3985f4b7ac97fb22952d01280c70f54b61e67cdc6a06c110384d34875e72afeb03b6e0a3aa66b769905a3f177686133144706fc537f52bd92145c4a246a678caf8d90aad0f679211b93267cc3ce1ebd883892ae45c6196a4950b305f8ae59378a6a250394b1598150e8ba8380b72335f476b9671d5918ad208d94",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "611993e400000000001c",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "78a717e082dcc1cda3458d917e677d14",
+                  "SHA1": "4a872e0e51f9b304469cd1dedb496ee9b8b983a4",
+                  "SHA256": "317fa1d234ebc49040ebc5e8746f8997471496051b185a91bdd9dfbb23fab5f8",
+                  "SHA384": "b71052da4eb9157c8c1a5d7f55df19d69b9128598b72fcca608e5b7cc7d64c43c5504b9c86355a6dc22ee40c88cc385c"
+                }
+              },
+              {
+                "Subject": "C=US, O=VeriSign, Inc., OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)10, CN=VeriSign Class 3 Code Signing 2010 CA",
+                "ValidFrom": "2010-02-08 00:00:00",
+                "ValidTo": "2020-02-07 23:59:59",
+                "Signature": "5622e634a4c461cb48b901ad56a8640fd98c91c4bbcc0ce5ad7aa0227fdf47384a2d6cd17f711a7cec70a9b1f04fe40f0c53fa155efe749849248581261c911447b04c638cbba134d4c645e80d85267303d0a98c646ddc7192e645056015595139fc58146bfed4a4ed796b080c4172e737220609be23e93f449a1ee9619dccb1905cfc3dd28dac423d6536d4b43d40288f9b10cf2326cc4b20cb901f5d8c4c34ca3cd8e537d66fa520bd34eb26d9ae0de7c59af7a1b42191336f86e858bb257c740e58fe751b633fce317c9b8f1b969ec55376845b9cad91faaced93ba5dc82153c2825363af120d5087111b3d5452968a2c9c3d921a089a052ec793a54891d3",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "5200e5aa2556fc1a86ed96c9d44b33c7",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "b30c31a572b0409383ed3fbe17e56e81",
+                  "SHA1": "4843a82ed3b1f2bfbee9671960e1940c942f688d",
+                  "SHA256": "03cda47a6e654ed85d932714fc09ce4874600eda29ec6628cfbaeb155cab78c9",
+                  "SHA384": "bbda8407c4f9fc4e54d772f1c7fb9d30bc97e1f97ecd51c443063d1fa0644e266328781776cd5c44896c457c75f4d7da"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "0b77a42478f55385522f3df9ba38bf9e",
+                "Issuer": "C=US, O=VeriSign, Inc., OU=VeriSign Trust Network, OU=Terms of use at https://www.verisign.com/rpa (c)10, CN=VeriSign Class 3 Code Signing 2010 CA",
+                "Version": 1
+              }
+            ]
+          }
+        ],
+        "LoadsDespiteHVCI": "UNKNOWN",
+        "Imphash": "59c3371d7834af9f084786a501ff4158",
+        "Sections": {
+          ".text": {
+            "Entropy": 6.2539394142867515,
+            "Virtual Size": "0x10b55"
+          },
+          ".rdata": {
+            "Entropy": 5.616478412675529,
+            "Virtual Size": "0x2f64"
+          },
+          ".data": {
+            "Entropy": 0.3989899675255742,
+            "Virtual Size": "0x334edc"
+          },
+          ".pdata": {
+            "Entropy": 4.840820620545098,
+            "Virtual Size": "0x6b4"
+          },
+          "INIT": {
+            "Entropy": 5.257578648296344,
+            "Virtual Size": "0xcca"
+          },
+          ".rsrc": {
+            "Entropy": 3.6250891728519323,
+            "Virtual Size": "0x468"
+          },
+          ".reloc": {
+            "Entropy": 4.83934406667824,
+            "Virtual Size": "0x12c"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2026-10-05 01:19:20",
+        "RichPEHeaderHash": {
+          "MD5": "b66cdba8e486308e7678aec7587e30cf",
+          "SHA1": "8f74f18f2e9fb7b176844cd234da87acf8f3fe47",
+          "SHA256": "8eb779cd44d1d3ab40279e16f3207cb88e856ceae29e3f0e76e5fce113b7dd04"
+        }
+      }
+    ]
+  },
+  {
     "Id": "a2c3f6e9-25a5-4b75-8c6b-ad2d4e155822",
     "Tags": [
       "directio.sys"
@@ -403007,7 +404014,7 @@
     "Verified": "TRUE",
     "Commands": {
       "Command": "sc.exe create NSecKrnl binPath=C:\\windows\\temp\\NSecKrnl.sys type=kernel && sc.exe start NSecKrnl",
-      "Description": "Driver used by ValleyRAT malware to terminate security processes via IOCTL 0x2248E0",
+      "Description": "NSecKrnl.sys exposes process termination through IOCTL 0x2248E0 (CVE-2025-68947). Public reporting documents its use by ValleyRAT malware and the Reynolds and Warlock ransomware operations to terminate security processes. SentinelOne reports that Reynolds targeted more than 30 security processes.",
       "Usecase": "Terminate security processes",
       "Privileges": "kernel",
       "OperatingSystem": "Windows 10"
@@ -403018,7 +404025,8 @@
       "https://symantec-blogs.broadcom.com/threat-intelligence/black-basta-ransomware-byovd",
       "https://www.welivesecurity.com/en/eset-research/killing-me-gently-inside-gentlemens-edr-killer-framework/",
       "https://www.trendmicro.com/en_gb/research/26/c/dissecting-a-warlock-attack.html",
-      "https://www.security.com/threat-intelligence/warlock-ransomware-critical-infrastructure"
+      "https://www.security.com/threat-intelligence/warlock-ransomware-critical-infrastructure",
+      "https://www.sentinelone.com/blog/bring-your-own-vulnerable-driver-how-edr-killing-became-an-industry/"
     ],
     "Acknowledgement": {
       "Person": "Liran Ravich, Cribl",
@@ -417889,6 +418897,260 @@
         "Imphash": "1dd3b83f2b007f862a1d8de4a1d3303f"
       }
     ]
+  },
+  {
+    "Id": "d1110c3d-3c4c-498e-b9ad-b8874b25841f",
+    "Tags": [
+      "RtsUpx.sys"
+    ],
+    "Author": "Element2023H",
+    "Created": "2026-10-17",
+    "MitreID": "T1068",
+    "CVE": [
+      "CVE-2021-36922",
+      "CVE-2021-36923",
+      "CVE-2021-36924",
+      "CVE-2021-36925"
+    ],
+    "Category": "vulnerable driver",
+    "Verified": "TRUE",
+    "Commands": {
+      "Command": "sc.exe create RtsUpx binPath= C:\\windows\\temp\\RtsUpx.sys type= kernel && sc.exe start RtsUpx",
+      "Description": "Realtek RtsUpx.sys 1.13.0.0 is within the affected range through 1.14.0.0. CVE-2021-36925 permits unauthorized physical-memory read/write through crafted device requests. Related vulnerabilities affect USB device access (CVE-2021-36922), privileged IN/OUT instructions (CVE-2021-36923), and pool memory handling (CVE-2021-36924). Static inspection of this sample confirms caller-controlled physical-memory mapping and copying in the device-control handler.",
+      "Usecase": "Allows local low-privileged users to achieve an arbitrary read or write operation from/to physical memory.",
+      "Privileges": "Unprivileged user with access to the loaded driver device; administrator rights to load it.",
+      "OperatingSystem": "Windows"
+    },
+    "Resources": [
+      "https://nvd.nist.gov/vuln/detail/cve-2021-36922",
+      "https://nvd.nist.gov/vuln/detail/cve-2021-36923",
+      "https://nvd.nist.gov/vuln/detail/cve-2021-36924",
+      "https://nvd.nist.gov/vuln/detail/cve-2021-36925"
+    ],
+    "KnownVulnerableSamples": [
+      {
+        "Filename": "RtsUpx.sys",
+        "MD5": "788697523de62efdd0cf1812531ce840",
+        "SHA1": "7352db51e2a1599b0ad671f91465a8304d41d135",
+        "SHA256": "6e29c49f9e97747c77e5929d026538b5e7e2d999fefe1dd502a6a422b7cb6485",
+        "Signature": [
+          "Realtek Semiconductor Corp.",
+          "Microsoft Windows Hardware Compatibility Publisher"
+        ],
+        "CreationTimestamp": "2021-02-10 06:34:34",
+        "Company": "Realtek Semiconductor Corp.",
+        "Description": "RtsUpx driver for Realtek USB device",
+        "Product": "RtsUpx driver for Realtek USB device",
+        "ProductVersion": "1.13.0.0",
+        "FileVersion": "1.13.0.0",
+        "MachineType": "AMD64",
+        "Authentihash": {
+          "MD5": "97de8956cfac9502d67da120e41aac5e",
+          "SHA1": "6ec3d3f71b940caafc3a2b0d4d9bd06c5e4b1fcd",
+          "SHA256": "777e171b7421454f7208762e4d7e9f7ffc251b176c087a0caf22f1ca3e31383d"
+        },
+        "Imports": [
+          "ntoskrnl.exe"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "RtlInitUnicodeString",
+          "KeInitializeEvent",
+          "KeWaitForSingleObject",
+          "KeAcquireSpinLockRaiseToDpc",
+          "KeReleaseSpinLock",
+          "ExAllocatePoolWithTag",
+          "ExFreePoolWithTag",
+          "MmProbeAndLockPages",
+          "MmUnlockPages",
+          "MmBuildMdlForNonPagedPool",
+          "MmMapLockedPagesSpecifyCache",
+          "MmUnmapLockedPages",
+          "MmMapIoSpace",
+          "MmUnmapIoSpace",
+          "IoAllocateMdl",
+          "IoBuildDeviceIoControlRequest",
+          "IoBuildSynchronousFsdRequest",
+          "IofCallDriver",
+          "IoCancelIrp",
+          "IofCompleteRequest",
+          "IoCreateDevice",
+          "IoCreateSymbolicLink",
+          "IoDeleteDevice",
+          "IoDeleteSymbolicLink",
+          "IoFreeMdl",
+          "IoGetDeviceObjectPointer",
+          "IoGetRelatedDeviceObject",
+          "ObReferenceObjectByHandle",
+          "ObfDereferenceObject",
+          "ObQueryNameString",
+          "FsRtlIsNameInExpression",
+          "__C_specific_handler",
+          "IoFileObjectType"
+        ],
+        "PDBPath": "E:\\SW_Camera\\Win_Driver\\RtsProxy\\RtsUpx\\_output\\x64_Release\\RtsUpx.pdb",
+        "Imphash": "ab986ade8b3cc340f30c1f64554034d7",
+        "RichPEHeaderHash": {
+          "MD5": "ae86a7dd76598959a84fde249fa9078c",
+          "SHA1": "3259e91046b6730a9ae978bd578f3b481ee5de3e",
+          "SHA256": "79dbcf255d4ba197d0deedd5df34d59f5b3d8cdde78f3627386fec18d56bc399"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.220648102927569,
+            "Virtual Size": "0xe77"
+          },
+          ".rdata": {
+            "Entropy": 3.9201076938673554,
+            "Virtual Size": "0x5dc"
+          },
+          ".data": {
+            "Entropy": 2.591917186688699,
+            "Virtual Size": "0x20"
+          },
+          ".pdata": {
+            "Entropy": 3.473363747843438,
+            "Virtual Size": "0xc0"
+          },
+          "PAGE": {
+            "Entropy": 5.87915204179382,
+            "Virtual Size": "0x3a6"
+          },
+          "INIT": {
+            "Entropy": 5.5110217349389465,
+            "Virtual Size": "0x614"
+          },
+          ".rsrc": {
+            "Entropy": 3.2866111925752532,
+            "Virtual Size": "0x3c0"
+          },
+          ".reloc": {
+            "Entropy": 2.7588718484453603,
+            "Virtual Size": "0x14"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "InternalName": "RtsUpx",
+        "OriginalFilename": "RtsUpx",
+        "Copyright": "Copyright (C) Realtek Semiconductor Corp.",
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=US, O=DigiCert, Inc., CN=DigiCert Timestamp 2021",
+                "ValidFrom": "2021-01-01 00:00:00",
+                "ValidTo": "2031-01-06 00:00:00",
+                "Signature": "481cdcb5e99a23bce71ae7200e8e6746fd427251740a2347a3ab92d225c47059be14a0e52781a54d1415190779f0d104c386d93bbdfe4402664ded69a40ff6b870cf62e8f5514a7879367a27b7f3e7529f93a7ed439e7be7b4dd412289fb87a246034efcf4feb76477635f2352698382fa1a53ed90cc8da117730df4f36539704bf39cd67a7bda0cbc3d32d01bcbf561fc75080076bc810ef8c0e15ccfc41172e71b6449d8229a751542f52d323881daf460a2bab452fb5ce06124254fb2dfc929a8734351dabd63d61f5b9bf72e1b4f131df74a0d717e97b7f43f84ebc1e3a349a1facea7bf56cfba597661895f7ea7b48e6778f93698e1cb28da5b87a68a2f",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0d424ae0be3a88ff604021ce1400f0dd",
+                "Version": 3,
+                "CertificateType": "Intermediate",
+                "IsCodeSigning": false,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "c0189c338449a42fe8358c2c1fbecc60",
+                  "SHA1": "b8ac0ee6875594b80ad86a6df6dd1fa3048c187c",
+                  "SHA256": "a43de6baf968a942da017b70769fdb65b3cfb1bbca1f9174da26a7d8aae78ec5",
+                  "SHA384": "76d3a316a5a106050298418cce3beea16100524723d9e3220b0de51bfb6f1c35a5d4c7cd10b358fef7bf94c3e3562150"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert SHA2 Assured ID Timestamping CA",
+                "ValidFrom": "2016-01-07 12:00:00",
+                "ValidTo": "2031-01-07 12:00:00",
+                "Signature": "719512e951875669cdefddda7caa637ab378cf06374084ef4b84bfcacf0302fdc5a7c30e20422caf77f32b1f0c215a2ab705341d6aae99f827a266bf09aa60df76a43a930ff8b2d1d87c1962e85e82251ec4ba1c7b2c21e2d65b2c1435430468b2db7502e072c798d63c64e51f4810185f8938614d62462487638c91522caf2989e5781fd60b14a580d7124770b375d59385937eb69267fb536189a8f56b96c0f458690d7cc801b1b92875b7996385228c61ca79947e59fc8c0fe36fb50126b66ca5ee875121e458609bba0c2d2b6da2c47ebbc4252b4702087c49ae13b6e17c424228c61856cf4134b6665db6747bf55633222f2236b24ba24a95d8f5a68e52",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "0aa125d6d6321b7e41e405da3697c215",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "8d26184fc613f89aba1cefb30fce1b53",
+                  "SHA1": "63a7e376bad5ec2e419d514a403bcf46c8d31d95",
+                  "SHA256": "56b5f0d9db578e3f142921daa387902722a76700375c7e1c4ae0ba004bacaa0c",
+                  "SHA384": "d8c9691fe9dbe182f07b49b07fbb4f589fa7b38b5c4d21f265d3a2e818f4b1bfb39e03faab2ec05bb10333a99914fb8a"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance EV Root CA",
+                "ValidFrom": "2011-04-15 19:45:33",
+                "ValidTo": "2021-04-15 19:55:33",
+                "Signature": "208cc159ed6f9c6b2dc14a3e751d454c41501cbd80ead9b0928b062a133f53169e56396a8a63b6782479f57db8b947a10a96c2f6cbbda2669f06e1acd279090efd3cdcac020c70af3f1bec787ed4eb4b056026d973619121edb06863e09712ab6fa012edd99fd2da273cb3e456f9d1d4810f71bd427ca689dccdd5bd95a2abf193117de8ac3129a85d6670419dfc75c9d5b31a392ad08505508bac91cac493cb71a59da4946f580cfa6e20c40831b5859d7e81f9d23dca5b18856c0a86ec22091ba574344f7f28bc954aab1db698b05d09a477767eefa78e5d84f61824cbd16da6c3a19cc2107580ff9d32fde6cf433a82f7ce8fe1722a9b62b75fed951a395c2f946d48b7015f332fbbdc2d73348904420a1c8b79f9a3fa17effaa11a10dfe0b2c195eb5c0c05973b353e18884ddb6cbf24898dc8bdd89f7b393a24a0d5dfd1f34a1a97f6a66f7a1fb090a9b3ac013991d361b764f13e573803afce7ad2b590f5aedc3999d5b63c97eda6cb16c77d6b2a4c9094e64c54fd1ecd20ecce689c8758e96160beeb0ec9d5197d9fe978bd0eac2175078fa96ee08c6a2a6b9ce3e765bcbc2d3c6ddc04dc67453632af0481bca8006e614c95c55cd48e8e9f2fc13274bdbd11650307cdefb75e0257da86d41a2834af8849b2cfa5dd82566f68aa14e25954feffeaeeefea9270226081e32523c09fcc0f49b235aa58c33ac3d9169410",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "61204db4000000000027",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "8e3ffc222fbcebdbb8b23115ab259be7",
+                  "SHA1": "ee20bff28ffe13be731c294c90d6ded5aae0ec0e",
+                  "SHA256": "59826b69bc8c28118c96323b627da59aaca0b142cc5d8bad25a8fcfd399aa821",
+                  "SHA384": "f2dab7e56a33298654924501499487f6ba72c7d9477476a186e1ed7a9be031fade0e35ac09eff5e56bbbab95ae5374e7"
+                }
+              },
+              {
+                "Subject": "JURISDICTION_OF_INCORPORATION_C=TW, BUSINESS_CATEGORY=Private Organization, serialNumber=22671299, C=TW, L=HSINCHU, O=Realtek Semiconductor Corp., CN=Realtek Semiconductor Corp.",
+                "ValidFrom": "2020-01-06 00:00:00",
+                "ValidTo": "2022-01-06 12:00:00",
+                "Signature": "93dcbeb99faffc0bc496db0ac78a915207e3c86c511f9204197d9bdd417199053807de287461299e1085da6d43bf6ce04095b580292305a53cb4f86eb16f0350b8b82a4961ee81343caac4d93c03b743053aea93fcca6af867e677a2bb8a3039e1b1bb157f48c0e61ddd831032c4d752bfd565697692d402cd55c27445919165642eca4475304f41f7c82da1b4772230256588f90fb1ffb91eef4e2fa7cf47b5d39dff17eb2f1bcf856af31021ea2da792a7e612db7189399681cd1d7febf941198aa381f542499b67549b66eb91edfa2e94cc06d1573eea0cdae5e6a693a4399c5c94d0ca6c1dbe713b090d4ae69433795544bb9bb96bc55e29a9ac9d48ffc0",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0bfcfac08e216a1c1fdaa6b77bb2d66e",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "2a58c42bb4a35c88a447db5a4be81650",
+                  "SHA1": "b973821e68ed2180ff2af8857c8318b71b9c9dac",
+                  "SHA256": "aa84fc498547cbebd677a800c19cd0ad9ea77832bcf6bbac2006b8896e898cb8",
+                  "SHA384": "fe49e032a6aba55e04f4ef6642f271ad1500c9af3c6a4cca1198d62d6ef1f0db6b85d320ac40dc5678cd66bd1d7ed2b4"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA",
+                "ValidFrom": "2012-04-18 12:00:00",
+                "ValidTo": "2027-04-18 12:00:00",
+                "Signature": "9e5b963a2e1288acab016da49f75e40187a3a532d7bcbaa97ea3d61417f7c2136b7c738f2b6ae50f265968b08e259b6ceffa6c939208c14dcf459e9c46d61e74a19b14a3fa012f4ab101e1724048111368b9369d914bd7c2391210c1c4dcbb6214142a615d4f387c661fc61bffadbe4f7f945b7343000f4d73b751cf0ef677c05bcd348cd96313aa0e6111d6f28e27fcb47bb8b91120918678ea0ed428ff2ad52438e837b2ec96bb9fbc4a1650e15ebf517d23a032c7c1949e7ac9c026a2cc2587a0127e749f2d8db1c8e784beb9d1e9debb6a4e887371e12238cb2487e9737e51b2ff98eb4e7e2fe0ca0efab35ed1ba0542a8489f83f63fc4caa8df68a05061",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "0dd0e3374ac95bdbfa6b434b2a48ec06",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "f92649915476229b093c211c2b18e6c4",
+                  "SHA1": "2d54c16a8f8b69ccdea48d0603c132f547a5cf75",
+                  "SHA256": "2cd702a7dec30aa441345672e8992ef9770ce4946f276d767b45b0ed627658fb",
+                  "SHA384": "511b0e0d7f3a48935cf2413348ff5f327887dc1e58f887bb5ed528d09f79173b55ab6439cf097fc7693b5749f7304ace"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "0bfcfac08e216a1c1fdaa6b77bb2d66e",
+                "Issuer": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert EV Code Signing CA",
+                "Version": 1
+              }
+            ]
+          }
+        ],
+        "LoadsDespiteHVCI": "UNKNOWN"
+      }
+    ],
+    "Detection": [],
+    "Acknowledgement": {
+      "Person": "Element2023H",
+      "Handle": "@Element2023H"
+    }
   },
   {
     "Id": "d1441172-cc15-4a96-b782-f440bfb681e1",
@@ -458082,29 +459344,32 @@
     "Id": "d474d8ad-14d9-4664-addd-86b4a9b7a1a5",
     "Tags": [
       "NeacSafe64.sys",
+      "NeacSafePort",
+      "FPSNeacSafePort",
       "OWNeacSafePort"
     ],
     "Verified": "TRUE",
-    "Author": "Michael Haag",
+    "Author": "Michael Haag, Zhang Tingjia",
     "Created": "2026-06-16",
     "MitreID": "T1068",
     "CVE": "CVE-2025-45737",
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "sc.exe create NeacSafe64 binPath=C:\\windows\\temp\\NeacSafe64.sys type=kernel && sc.exe start NeacSafe64",
-      "Description": "NetEase NeacSafe64.sys is an anti-cheat mini-filter driver referenced by KDU and public NeacController research. Versions prior to 1.0.0.8 expose IOCTL/message-handler paths that provide arbitrary kernel read/write primitives and can be chained for SYSTEM privilege escalation or kernel-mode code execution.",
-      "Usecase": "Abuse arbitrary kernel read/write primitives for local privilege escalation and kernel-mode code execution.",
+      "Description": "NetEase NeacSafe64.sys is an anti-cheat minifilter driver. Public NeacController research documents arbitrary kernel writes (opcode 70) in the 2025-02-20 sample, SHA256 65447f727801e8be8a51aaaafc07618c8196553e683affb0721da441e2430bad, associated with CVE-2025-45737. Separate research on the added 2026 FragPunk, Overwatch China and NARAKA builds reports that opcode 70 has been stubbed, while unauthenticated filter-port messages still expose process termination (opcode 20), process-protection changes (opcode 33), a pool overflow (opcode 52), and a system-crash path (opcode 63). The researcher reports termination and protection stripping of PPL processes. The filter port permits one connection, so an existing client can prevent access. All these builds report version 1.0.0.0 despite differing capabilities; use sample hashes to distinguish them. The older CVE's arbitrary-write claim is not applied to the added samples.",
+      "Usecase": "Abuse vulnerable message handlers for kernel writes in the older sample, or process termination, protection changes and denial of service in the added builds.",
       "Privileges": "kernel",
       "OperatingSystem": "Windows 10, Windows 11"
     },
     "Resources": [
       "https://github.com/za233/NeacController",
-      "https://github.com/hfiref0x/KDU/blob/master/Help/providers.md"
+      "https://github.com/hfiref0x/KDU/blob/master/Help/providers.md",
+      "https://github.com/hax0r31337/vuln-driver-neacsafe64"
     ],
     "Detection": [],
     "Acknowledgement": {
-      "Person": "za233",
-      "Handle": "@za233"
+      "Person": "za233, hax0r31337",
+      "Handle": "@za233, @hax0r31337"
     },
     "KnownVulnerableSamples": [
       {
@@ -458455,6 +459720,227 @@
               }
             ]
           }
+        ]
+      },
+      {
+        "Filename": "NeacSafe64.sys",
+        "SHA256": "1d828fe7d97620cd92275c6d14fe9721c9b04b514f4dce084f7f6ea05b7d5acd",
+        "MD5": "1607f41c32e67edf39d0968f332aef9f",
+        "SHA1": "555c8c25dee0a3c23256f9f9b66ce274f7b15aa1",
+        "Imphash": "30a629a38af80951a4e2301ee1d5feee",
+        "Authentihash": {
+          "MD5": "aa2591313be9f531805de3ddb4071d61",
+          "SHA1": "00b873ecb9ee4ff59a76ba1f4b99531d4eac466b",
+          "SHA256": "9a44bc8e37db8fd7bcfab61e7236418377510816da3a8a20edd84d26284c5980"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "d5998514fc023b758d0e4bc54446392e",
+          "SHA1": "64e3799af17d2f67b7d5f7659aad42b0fa804e45",
+          "SHA256": "45195b72fe74421b8c1d6020fa50ea7607a275fe3aeea792e86dc63355c014cf"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.677457616623464,
+            "Virtual Size": "0x7d449"
+          },
+          ".rdata": {
+            "Entropy": 5.051079715148226,
+            "Virtual Size": "0x10af0b4"
+          },
+          ".data": {
+            "Entropy": 4.24730756525089,
+            "Virtual Size": "0x2f56c"
+          },
+          ".pdata": {
+            "Entropy": 5.954345329430121,
+            "Virtual Size": "0x23b8"
+          },
+          "PAGE": {
+            "Entropy": 6.4483173931255005,
+            "Virtual Size": "0x4d26"
+          },
+          "INIT": {
+            "Entropy": 6.578951100438162,
+            "Virtual Size": "0x9d156"
+          },
+          ".rsrc": {
+            "Entropy": 3.19179103969721,
+            "Virtual Size": "0x250"
+          },
+          ".reloc": {
+            "Entropy": 6.650608180914088,
+            "Virtual Size": "0x1954"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2026-01-30 01:57:30",
+        "Description": "",
+        "Company": "网易(杭州)网络有限公司杭州",
+        "InternalName": "",
+        "OriginalFilename": "neacsafe",
+        "FileVersion": "1.0.0.0",
+        "Product": "neacsafe",
+        "ProductVersion": "1.0.0.0",
+        "Copyright": "",
+        "MachineType": "AMD64",
+        "Imports": [
+          "FLTMGR.SYS",
+          "ntoskrnl.exe",
+          "HAL.dll"
+        ],
+        "ExportedFunctions": "",
+        "Publisher": "Microsoft Windows Hardware Compatibility Publisher",
+        "Signature": [
+          "Microsoft Windows Hardware Compatibility Publisher",
+          "Microsoft Windows Third Party Component CA 2014"
+        ]
+      },
+      {
+        "Filename": "NeacSafe64.sys",
+        "SHA256": "f79a4ba7f5656fa9ccfe245a90e6e861e2d1aaf0f9d52240abaad0521da063be",
+        "MD5": "ebfad15f91e3e4bd7f538c96dc855924",
+        "SHA1": "5b8194c13270963c29e5fa2e0ab01cc6fba4b786",
+        "Imphash": "c4d7f42aad938be2184b7e1be80216f8",
+        "Authentihash": {
+          "MD5": "a9c6084cc45f63c0b82f8ed9bc79542e",
+          "SHA1": "e2b9255e5554b1568a01b91e9f65389926b5e377",
+          "SHA256": "3f26c7056416b92aaaa01aaa95ee4bed44eab881a476df7b80cd5a189e0daeaf"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "1ba8c6d8525c77be685783b18d4f9e68",
+          "SHA1": "13f8b460ce0e8860854c3097318dc220264c3f7d",
+          "SHA256": "c3631fbc40aa3a77d0bee3c8598fe3e46cb53f9459c200231ebd1b67362e5a0f"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.6507580754145454,
+            "Virtual Size": "0x673c9"
+          },
+          ".rdata": {
+            "Entropy": 5.249504566197215,
+            "Virtual Size": "0xe3ed0c"
+          },
+          ".data": {
+            "Entropy": 4.034258427366,
+            "Virtual Size": "0x300dc"
+          },
+          ".pdata": {
+            "Entropy": 5.726769928358638,
+            "Virtual Size": "0x3e64"
+          },
+          "PAGE": {
+            "Entropy": 6.514000397899089,
+            "Virtual Size": "0x48b1"
+          },
+          "INIT": {
+            "Entropy": 6.616653340232306,
+            "Virtual Size": "0x9af48"
+          },
+          ".rsrc": {
+            "Entropy": 3.1910719454433334,
+            "Virtual Size": "0x250"
+          },
+          ".reloc": {
+            "Entropy": 6.662733517858968,
+            "Virtual Size": "0x1958"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2026-04-03 03:00:01",
+        "Description": "",
+        "Company": "网易(杭州)网络有限公司杭州",
+        "InternalName": "",
+        "OriginalFilename": "neacsafe",
+        "FileVersion": "1.0.0.0",
+        "Product": "neacsafe",
+        "ProductVersion": "1.0.0.0",
+        "Copyright": "",
+        "MachineType": "AMD64",
+        "Imports": [
+          "FLTMGR.SYS",
+          "ntoskrnl.exe",
+          "HAL.dll",
+          "WDFLDR.SYS"
+        ],
+        "ExportedFunctions": "",
+        "Publisher": "Microsoft Windows Hardware Compatibility Publisher",
+        "Signature": [
+          "Microsoft Windows Hardware Compatibility Publisher",
+          "Microsoft Windows Third Party Component CA 2014"
+        ]
+      },
+      {
+        "Filename": "NeacSafe64.sys",
+        "SHA256": "b1147d9b4bed22d8b6e6dcc7366950ffb57ecc10fbfe8f4ee9615b3d3cdd2368",
+        "MD5": "7296e9a1ef2e6aaafc6915e1eb552780",
+        "SHA1": "8bc89c4564188385709a04fc941c82586febe771",
+        "Imphash": "36579a94b168b84abb2af8cc819813e2",
+        "Authentihash": {
+          "MD5": "64de48508b489bc662ce758872ec4c9c",
+          "SHA1": "1bc1927f305fc59a800b5cc025c5e1517c7683b1",
+          "SHA256": "094c3832057096dd966add98530f24fbcef27204b981a4d0bbbdba8dfb3eb2b3"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "70ea073af5e7710a1e13a724d0293d90",
+          "SHA1": "270caaac0d60f4345ef6aac9c512d1e48b30f984",
+          "SHA256": "6ddbd0ff3c8ba45f8b3d119d5739795d103248219a8936a545a0631661aa0b29"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.638922239516356,
+            "Virtual Size": "0x66409"
+          },
+          ".rdata": {
+            "Entropy": 5.02170455412598,
+            "Virtual Size": "0xfbecf4"
+          },
+          ".data": {
+            "Entropy": 4.029856674327286,
+            "Virtual Size": "0x300dc"
+          },
+          ".pdata": {
+            "Entropy": 5.869427842519824,
+            "Virtual Size": "0x3e1c"
+          },
+          "PAGE": {
+            "Entropy": 6.512371330262517,
+            "Virtual Size": "0x48b1"
+          },
+          "INIT": {
+            "Entropy": 6.626759917855309,
+            "Virtual Size": "0x94812"
+          },
+          ".rsrc": {
+            "Entropy": 3.191131648606731,
+            "Virtual Size": "0x250"
+          },
+          ".reloc": {
+            "Entropy": 6.664797338448507,
+            "Virtual Size": "0x195c"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2026-05-19 07:05:01",
+        "Description": "",
+        "Company": "网易(杭州)网络有限公司杭州",
+        "InternalName": "",
+        "OriginalFilename": "neacsafe",
+        "FileVersion": "1.0.0.0",
+        "Product": "neacsafe",
+        "ProductVersion": "1.0.0.0",
+        "Copyright": "",
+        "MachineType": "AMD64",
+        "Imports": [
+          "FLTMGR.SYS",
+          "ntoskrnl.exe",
+          "HAL.dll",
+          "WDFLDR.SYS"
+        ],
+        "ExportedFunctions": "",
+        "Publisher": "Microsoft Windows Hardware Compatibility Publisher",
+        "Signature": [
+          "Microsoft Windows Hardware Compatibility Publisher",
+          "Microsoft Windows Third Party Component CA 2014"
         ]
       }
     ]
@@ -478987,6 +480473,250 @@
     ]
   },
   {
+    "Id": "de4bebdc-0f92-4855-989a-ac2cd1224190",
+    "Tags": [
+      "MonProcessControl.sys"
+    ],
+    "Verified": "TRUE",
+    "Author": "Michael Haag",
+    "Created": "2026-10-19",
+    "MitreID": "T1562.001",
+    "Category": "vulnerable driver",
+    "Commands": {
+      "Command": "sc.exe create MonProcessControl binPath=C:\\windows\\temp\\MonProcessControl.sys type=kernel && sc.exe start MonProcessControl",
+      "Description": "HONOR's MonProcessControl.sys version 1.0.0.1 exposes process termination through IOCTL 0x22400C on \\\\.\\MonProcessControl. Jehad Abudagga's KillerLand research publishes a proof of concept that submits a four-byte target PID and reports termination of protected AV/EDR processes. Static analysis confirms that the handler opens the supplied PID with ZwOpenProcess using a kernel handle and calls ZwTerminateProcess. The driver restricts device access to administrators and SYSTEM and checks that the calling process's image path ends with \\HONOR\\MagicAnimation\\MagicSpaceTurbo.exe. The published proof of concept copies itself to that path before opening the device, satisfying this path-based check. Protected-process termination is reported by the researcher and was not independently reproduced here.",
+      "Usecase": "Terminate caller-selected processes from kernel mode to impair security tools.",
+      "Privileges": "Administrator required to load the driver, access its device, and use the published proof of concept.",
+      "OperatingSystem": "Windows"
+    },
+    "Resources": [
+      "https://github.com/redteamfortress/KillerLand",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/README.md",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/2.%20MonProcessControl/monproc_poc.c",
+      "https://github.com/redteamfortress/KillerLand/blob/efb10e494ecabfc42fe1a41ecf2ba79964cb8a91/2.%20MonProcessControl/MonProcessControl.sys"
+    ],
+    "Acknowledgement": {
+      "Person": "Jehad Abudagga",
+      "Handle": "@j3h4ck"
+    },
+    "Detection": [],
+    "KnownVulnerableSamples": [
+      {
+        "Filename": "MonProcessControl.sys",
+        "MD5": "feacb824f30def7732b2b1c2b000ac22",
+        "SHA1": "019f2ec8f50605d880886cc241139e52159578e3",
+        "SHA256": "0e1cc4f205ddc6b78578de2da209ba3ba1f16fac482f4042bbd02036fc470f04",
+        "Imphash": "5d9a58cb1f98a21b421e3c1f3426064e",
+        "Authentihash": {
+          "MD5": "02dc6130fca94a9741a37b56261c66ca",
+          "SHA1": "4af78ec3cba298ababed50263d4b70b5cba4e93f",
+          "SHA256": "68ad66ec793df37a7cae25dba4b6dd5e45624409ae81607eff419ae4d59d7384"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "18e9cd08fb645e92ff3fe97c327f9435",
+          "SHA1": "b2116e875c3b18e16f846ff3e90b8d2866811348",
+          "SHA256": "6b9a4f235ee865b3035bc0c03e122608a0a8ec1f695d823eff4a8302c5afdcff"
+        },
+        "Sections": {
+          ".text": {
+            "Entropy": 6.375374323574863,
+            "Virtual Size": "0x1dc9"
+          },
+          ".rdata": {
+            "Entropy": 4.278506830010836,
+            "Virtual Size": "0xd44"
+          },
+          ".data": {
+            "Entropy": 1.2745467871770655,
+            "Virtual Size": "0x2340"
+          },
+          ".pdata": {
+            "Entropy": 4.281116980873497,
+            "Virtual Size": "0x39c"
+          },
+          "PAGE": {
+            "Entropy": 6.288306994918375,
+            "Virtual Size": "0x2100"
+          },
+          "INIT": {
+            "Entropy": 5.425033959004694,
+            "Virtual Size": "0x7ca"
+          },
+          ".rsrc": {
+            "Entropy": 3.285084810123525,
+            "Virtual Size": "0x3b0"
+          },
+          ".reloc": {
+            "Entropy": 3.8132924776753416,
+            "Virtual Size": "0x38"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2026-07-21 08:56:07",
+        "Description": "MonProcessControl",
+        "Company": "Honor Device Co., Ltd.",
+        "InternalName": "MonProcessControl",
+        "OriginalFilename": "MonProcessControl.sys",
+        "FileVersion": "1.0.0.1",
+        "Product": "Honor",
+        "ProductVersion": "1.0.0.1",
+        "Copyright": "Copyright (C) Honor Device Co., Ltd. 2016-2020. All rights reserved.",
+        "MachineType": "AMD64",
+        "Imports": [
+          "ntoskrnl.exe"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "DbgPrint",
+          "ZwClose",
+          "ZwOpenProcess",
+          "ZwSetInformationProcess",
+          "RtlInitUnicodeString",
+          "ExFreePoolWithTag",
+          "IofCompleteRequest",
+          "IoCreateSymbolicLink",
+          "IoDeleteDevice",
+          "IoDeleteSymbolicLink",
+          "PsGetCurrentProcessId",
+          "InitSafeBootMode",
+          "MmGetSystemRoutineAddress",
+          "RtlFreeUnicodeString",
+          "RtlGetVersion",
+          "KeGetCurrentIrql",
+          "ExAllocatePool2",
+          "ObReferenceObjectByHandle",
+          "ZwTerminateProcess",
+          "__C_specific_handler",
+          "RtlCompareUnicodeStrings",
+          "KeInitializeEvent",
+          "KeSetEvent",
+          "ExAcquireFastMutex",
+          "ExReleaseFastMutex",
+          "ObfDereferenceObject",
+          "PsSetCreateProcessNotifyRoutineEx",
+          "ExEventObjectType",
+          "RtlEqualUnicodeString",
+          "ZwQueryValueKey",
+          "ZwSetSecurityObject",
+          "IoDeviceObjectType",
+          "IoCreateDevice",
+          "ObOpenObjectByPointer",
+          "RtlGetDaclSecurityDescriptor",
+          "RtlGetGroupSecurityDescriptor",
+          "RtlGetOwnerSecurityDescriptor",
+          "RtlGetSaclSecurityDescriptor",
+          "SeCaptureSecurityDescriptor",
+          "_snwprintf",
+          "RtlLengthSecurityDescriptor",
+          "SeExports",
+          "RtlCreateSecurityDescriptor",
+          "_wcsnicmp",
+          "ExAllocatePoolWithTag",
+          "wcschr",
+          "RtlAbsoluteToSelfRelativeSD",
+          "RtlAddAccessAllowedAce",
+          "RtlLengthSid",
+          "IoIsWdmVersionAvailable",
+          "RtlSetDaclSecurityDescriptor",
+          "ZwOpenKey",
+          "ZwSetValueKey",
+          "ZwCreateKey"
+        ],
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "OU=GlobalSign Root CA , R3, O=GlobalSign, CN=GlobalSign",
+                "ValidFrom": "2018-09-19 00:00:00",
+                "ValidTo": "2028-01-28 12:00:00",
+                "Signature": "2370e9cfe2bef559ae94426fc44333aacd3f3ab96417f262064b48f140880617a1feabd15f3cc633f2f38edd1f1d3ecc1a6099820bacc7fc7e9a872aa57d0fa657eeac3b6a85d6debd4063f8ada6c888b012fcf641df0f09971e38ea539fbe05f43eead39f501276be098bc20b487d1e2e51f68d53d3ab1f401b8a8eed7dfb4f7956705f0cd38e1bb3a7700d372b9795abdae0126b1c40cec5c77eedc26258ec77ed7322c28af5864388adea136efdd8fe422fb97d5ead18ef9490ca3d27ab26949975c7cbd37bf7ca4cd3af5121925b847d2b9f153f74cb51e89e830e166f1be746ce23bdf9e4a28bd2396baa791c912ce261242d8e2a487090c41ec5e8e070",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "01ee5f169dff97352b6465d66a",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "51c3959a45cecf3d21a3effb05762573",
+                  "SHA1": "ecfcd25fd0525448a74875ba271566bc0bfbf061",
+                  "SHA256": "de1da11668f0a8d5e13346ed3ab2755f5d25bebffcfd1d0bde5b9f87bc292c91",
+                  "SHA384": "f0eab75baf1f24a53d63bd795cd07292a312f603513c8cb0f40fe5acbdb477ed72607d309fad21471a16f6223fb3a838"
+                }
+              },
+              {
+                "Subject": "C=BE, O=GlobalSign nv,sa, CN=GlobalSign Code Signing Root R45",
+                "ValidFrom": "2020-07-28 00:00:00",
+                "ValidTo": "2029-03-18 00:00:00",
+                "Signature": "acf7cc158b3079a81d0b28881909d71c7ffe86bd7b5a336e0d670e7b62d9e1185cb0bd135d1d23ae39507637aa44fd5f01235986564cccadbc64131430a420a8e03fe89c72dc7ef3d80c23baa82daa3cf6ec9f87310765f539a7518275e1f22f97f6d1e165968364fea11d51fbb5249bf5d27769bc852c5cfa5877d1aea7b10be2d677bba9b4344aa96f3df4f30d955de6f97a45b02517312edbf70f68e6831fa9f7e5d49d988cd3614b2fc3287e7ade930eb47da00a6d92c4b4663f7da758eeacf7ecc30801ab38fc0a1ca9c597b288c8090219f65c9a1af14d6c30d4b306ab0060480d78abcf17ad9293622077756cbdc832b4dc4debd9dfc1909629bdc17f",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.12",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "7803184245708a41cf6f01b8eeb4a954",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "a33260428269bc902bc1cd280e4b1837",
+                  "SHA1": "254209ca172cffcc67bd2a88996556d2f09538f0",
+                  "SHA256": "a67411358594f2cf016741a63fd49f36de917f86531b3e3a43eb6a421c654868",
+                  "SHA384": "fec727af43d1569995cea26e8eb97167165842a5b185304425a92c03b71254c5d51222837515f33e60cb8ed2e8c625ba"
+                }
+              },
+              {
+                "Subject": "C=BE, O=GlobalSign nv,sa, CN=GlobalSign GCC R45 EV CodeSigning CA 2020",
+                "ValidFrom": "2020-07-28 00:00:00",
+                "ValidTo": "2030-07-28 00:00:00",
+                "Signature": "2575a009c939bab7a139892f189fabd6eb1d4be8947c0d07689b1c9def71b6176a6b024fb33f864587cc659b4ce35806022266d56102c5638fd4a2f1b65e250b7796e9cd7140338829eceef3a26dbc4db53e064bc97333ca08142d3d4ce8b0ba75a6742da4583a6c1349f8a5150a149685b16a68342542af9656f410fa247df12b72c116e16bebe6a998c73e5af4d0189dfd74978677462a3d237d28738aaeef2b1b9abf6c53a7149e3c8771c05e8ec8fbd32a9233ea574d5e075ecac118ac812d1a21fa6ecf97617bdf717a3aca63f7d530443732febb4385dcbafca6ca33192b776ddbcb05f07e5f752ea2b6bf35aa3663c9ce64d9bdfcbc2cf3495600c8122bc627bb37af57efc4cf1e29c4f4e22dce2a61cf57edf50a40e2f518d61ee9902fcad3875f938a481a111de537859f2e66629a5e814e95ac555743dc538b257e3c610f8a0bbaf53fa6d78ef704565e21bb9fd76a7180bf96de7203d8d8222bf327164f38e851400cae92efbe3d7df780c64c36578495a7841548300e5227088d8ea2bd22c719c9a6ca0ea87a36db6aba615f112495a4e28e68ee19a949995ed0b434bdd6f940c710973152393529118724d3c4fba963cb7748d5fa62fc24e0047a4ed0e46edece9e385026f4217165d70925d4c907007ab8c7f377e8c5d4e255d0d31ef67f52e2498db911720c88442633660144dfe4330e21de62894807daf5",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "77bd0e05b7590bb61d4761531e3f75ed",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "65fd1dac1f115d9507f4e1840c8cb36a",
+                  "SHA1": "c7cf5607e19b22fe60c055e71d9b555d70f71f66",
+                  "SHA256": "d9c7db0b704f07089440c56e69a0f31d730edf77cfbf7514630e8b5390a270fe",
+                  "SHA384": "defe810317bd1215b4d1ee0ec8a5fb38b21d094ef1173cae670956cd899232638e4f9473fd947bd550a4a77300bbb2ab"
+                }
+              },
+              {
+                "Subject": "BUSINESS_CATEGORY=Private Organization, serialNumber=91440300MA5G49LC9K, JURISDICTION_OF_INCORPORATION_C=CN, JURISDICTION_OF_INCORPORATION_SP=Guangdong, JURISDICTION_OF_INCORPORATION_L=Shenzhen, C=CN, ST=Guangdong, L=Shenzhen, STREET_ADDRESS=福田区香蜜湖街道东海社区红荔西路8089号深业中城6号楼A单元3401, O=Honor Device Co., Ltd., CN=Honor Device Co., Ltd.",
+                "ValidFrom": "2023-12-14 09:34:53",
+                "ValidTo": "2026-11-28 09:15:10",
+                "Signature": "598eeb133d94263336a451a0458319572beb8b2d511efb9e4bc1c4b44afa7464883693bb8833df77189bae91d01a5a7bf3837e0fc3eec457b294a071c93ebf719b48a8ca2d095f0d73f670c8b7081096d969e8af368c91d3c814f38c5f8b8a0da78e803c22f973b83fa17167d492ce3190be35c356ea290a2241b540220b4b33b47cea8870827cc08cdb9557cd66a75082a086ec40d0318d65c28c2051b2baadded9eb47332107c1a03d8346e540d3d6bd0d3dac8b3108f6a0ddb236cb716c0ac16c6160d23d14487ae4d8d535b07645394b4619793f62a704608d8cbd097ca169d085d18c8e776617e7a7be94968e662ac998890b491080950b6cca7f425ac05147910b579a53dae0dad1576d80cdd73c51318f27c42aaa11cf684602009c98f7fddcd33130cc7533963cf4913cf577943ec98e4053083226906ead774db80c23aa7721805e6b0004606f10e676ba165e969ca9b3c1eaba944ad920457f31f46e234c7b5af7fac14df216f148f6d9df08bf38be5a4e19aa2b45c48956e5075663cd455e942d8847c370c15affb6e6691b280d6b7606ff33e9fcbd58cbfbafdba14d6c7336fd7d77fddae2b309286ea3dc5cec07935b39128605d26bec11ff70a05f4f5e861c886597208e698d6dcf46c02761d6eeaebe4c1c2c3a96f77d093853a0574da8f09379a02c84c3a07770491489b255ac3ed86d1a5372a0d41eaadb",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.11",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "032fba56284f12315bb78036",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "b7fc4b809e20b3f13cc3ba9957e7604b",
+                  "SHA1": "99db55c393dbc2e903f0355bf1350c005b8ab1c7",
+                  "SHA256": "7febf29a3eca70c31f18a3fd3136f9dd4be2a580d4a7bb4e280851bcf217e565",
+                  "SHA384": "5a9dbc083f686dfd54d7081f089bc2eadb97ad6dce45b6d2654310332cd084b221c109f3d04472280bfb31a873aad280"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "032fba56284f12315bb78036",
+                "Issuer": "C=BE, O=GlobalSign nv,sa, CN=GlobalSign GCC R45 EV CodeSigning CA 2020",
+                "Version": 1
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  {
     "Id": "de4dd27a-1f7e-4271-98a4-55395ab6aabf",
     "Tags": [
       "BS_I2c64.sys",
@@ -479968,18 +481698,21 @@
     "Category": "vulnerable driver",
     "Commands": {
       "Command": "sc.exe create truesight.sys binPath=C:\\windows\\temp\\truesight.sys type=kernel && sc.exe start truesight.sys",
-      "Description": "This is a C# AV/EDR Killer using Rogue Anti-Malware Driver 3.3. This driver is not present in the loldrivers or Windows blocklist at the time of this writing. The only reason I'm making this public is because the company has already published a fix in version 3.4, and Microsoft will likely block this driver soon. This driver can be used in Windows 23H2 with HVCI enabled, loldrivers blocklist, or WDAC enabled. HVCI is designed to ensure the integrity of code executed in the kernel, but it cannot protect against all possible vulnerabilities or actions that can be performed through drivers or system interfaces.",
-      "Usecase": "Elevate privileges",
-      "Privileges": "kernel",
-      "OperatingSystem": "Windows 11"
+      "Description": "Adlice TrueSight.sys exposes kernel-mode process termination through IOCTL 0x22E044. Static inspection of the 2.0.2 sample confirms that a caller-supplied PID reaches ZwOpenProcess with PROCESS_TERMINATE and then ZwTerminateProcess. Public Darkside research documents abuse of version 3.3 and reports a fix in 3.4; Check Point describes exploitation of legacy builds. The 2.0.2 submitter reports process termination and automatic restart in a Windows 11 VM. That recording does not establish the target process's PPL status. Loading behavior depends on Windows policy, signing and blocklist state; no general HVCI or WDAC bypass is asserted for the added sample.",
+      "Usecase": "Terminate security processes from kernel mode.",
+      "Privileges": "Administrator to load the driver; access to its device is required.",
+      "OperatingSystem": "Windows"
     },
     "Resources": [
-      "https://github.com/ph4nt0mbyt3/Darkside"
+      "https://github.com/ph4nt0mbyt3/Darkside",
+      "https://research.checkpoint.com/2025/large-scale-exploitation-of-legacy-driver/",
+      "https://github.com/magicsword-io/LOLDrivers/pull/466",
+      "https://web.archive.org/web/20160420143840id_/http://download.adlice.com/RogueKiller/RogueKillerX64.exe"
     ],
     "Detection": [],
     "Acknowledgement": {
-      "Person": "",
-      "Handle": ""
+      "Person": "ph4nt0mbyt3, junho462, bob-dev-byovd",
+      "Handle": "@ph4nt0mbyt3, @junho462, @bob-dev-byovd"
     },
     "KnownVulnerableSamples": [
       {
@@ -480412,6 +482145,238 @@
             ]
           }
         ]
+      },
+      {
+        "Filename": "truesight.sys",
+        "MD5": "0d5a09b08568760ae85a801fcbc0f83d",
+        "SHA1": "3ec1e15b4a903b92e965a44dd9514267c1ceff80",
+        "SHA256": "347acba74fdcbeac671521739f8a34ec0e378caf716c31f55616f9f843e4d0d3",
+        "FileVersion": "2.0.2",
+        "ProductVersion": "2.0.2",
+        "Imphash": "17fec1f996adceb4112879eb84986897",
+        "Sections": {
+          ".text": {
+            "Entropy": 6.117715092322614,
+            "Virtual Size": "0x2cc4"
+          },
+          ".rdata": {
+            "Entropy": 4.878549360310541,
+            "Virtual Size": "0x6ac"
+          },
+          ".data": {
+            "Entropy": 1.5624164861624648,
+            "Virtual Size": "0x200"
+          },
+          ".pdata": {
+            "Entropy": 4.040491434039326,
+            "Virtual Size": "0x1a4"
+          },
+          "PAGE": {
+            "Entropy": 4.278783719048785,
+            "Virtual Size": "0x6c"
+          },
+          "INIT": {
+            "Entropy": 5.432329011491992,
+            "Virtual Size": "0x816"
+          },
+          ".rsrc": {
+            "Entropy": 3.266084443720434,
+            "Virtual Size": "0x3c8"
+          },
+          ".reloc": {
+            "Entropy": 2.444574021773628,
+            "Virtual Size": "0x96"
+          }
+        },
+        "MagicHeader": "50 45 0 0",
+        "CreationTimestamp": "2016-01-15 20:17:58",
+        "Description": "Antirootkit module",
+        "Company": "Adlice Software",
+        "InternalName": "Truesight",
+        "OriginalFilename": "Truesight",
+        "Product": "Truesight",
+        "Copyright": "Copyright Adlice Software(C) 2014",
+        "MachineType": "AMD64",
+        "Imports": [
+          "ntoskrnl.exe"
+        ],
+        "ExportedFunctions": "",
+        "ImportedFunctions": [
+          "IoDeleteSymbolicLink",
+          "RtlInitUnicodeString",
+          "IoDeleteDevice",
+          "IofCompleteRequest",
+          "IoCreateSymbolicLink",
+          "IoCreateDevice",
+          "DbgPrint",
+          "ExFreePoolWithTag",
+          "KeBugCheckEx",
+          "_wcsicmp",
+          "ZwQuerySystemInformation",
+          "ExAllocatePool",
+          "ZwClose",
+          "ZwOpenProcess",
+          "ObfDereferenceObject",
+          "ZwTerminateProcess",
+          "ObOpenObjectByName",
+          "ZwOpenDirectoryObject",
+          "ObQueryNameString",
+          "IoDriverObjectType",
+          "IoGetDeviceObjectPointer",
+          "ObReferenceObjectByHandle",
+          "ZwQueryDirectoryObject",
+          "MmIsAddressValid",
+          "KeResetEvent",
+          "KeInitializeApc",
+          "KeSetEvent",
+          "KeInsertQueueApc",
+          "KeInitializeEvent",
+          "KeWaitForSingleObject",
+          "RtlCaptureStackBackTrace",
+          "PsGetCurrentThreadId",
+          "PsLookupThreadByThreadId",
+          "ExAllocatePoolWithTag",
+          "ZwDeleteKey",
+          "ZwEnumerateKey",
+          "ZwQueryKey",
+          "ZwOpenKey",
+          "IoFreeMdl",
+          "MmMapLockedPagesSpecifyCache",
+          "MmProbeAndLockPages",
+          "MmUnlockPages",
+          "IoAllocateMdl",
+          "IoGetAttachedDevice",
+          "IoGetRelatedDeviceObject",
+          "IoCreateFile",
+          "IoFileObjectType",
+          "IoFreeIrp",
+          "IoAllocateIrp",
+          "IofCallDriver",
+          "RtlGetVersion",
+          "PsGetVersion",
+          "__C_specific_handler"
+        ],
+        "Signatures": [
+          {
+            "CertificatesInfo": "",
+            "SignerInfo": "",
+            "Certificates": [
+              {
+                "Subject": "C=US, O=Symantec Corporation, CN=Symantec Time Stamping Services CA , G2",
+                "ValidFrom": "2012-12-21 00:00:00",
+                "ValidTo": "2020-12-30 23:59:59",
+                "Signature": "03099b8f79ef7f5930aaef68b5fae3091dbb4f82065d375fa6529f168dea1c9209446ef56deb587c30e8f9698d23730b126f47a9ae3911f82ab19bb01ac38eeb599600adce0c4db2d031a6085c2a7afce27a1d574ca86518e979406225966ec7c7376a8321088e41eaddd9573f1d7749872a16065ea6386a2212a35119837eb6",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "7e93ebfb7cc64e59ea4b9a77d406fc3b",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "d0785ad36e427c92b19f6826ab1e8020",
+                  "SHA1": "365b7a9c21bd9373e49052c3e7b3e4646ddd4d43",
+                  "SHA256": "c2abb7484da91a658548de089d52436175fdb760a1387d225611dc0613a1e2ff",
+                  "SHA384": "eab4fe5ef90e0de4a6aa3a27769a5e879f588df5e4785aa4104debd1f81e19ea56d33e3a16e5facf99f68b5d8e3d287b"
+                }
+              },
+              {
+                "Subject": "C=US, O=Symantec Corporation, CN=Symantec Time Stamping Services Signer , G4",
+                "ValidFrom": "2012-10-18 00:00:00",
+                "ValidTo": "2020-12-29 23:59:59",
+                "Signature": "783bb4912a004cf08f62303778a38427076f18b2de25dca0d49403aa864e259f9a40031cddcee379cb216806dab632b46dbff42c266333e449646d0de6c3670ef705a4356c7c8916c6e9b2dfb2e9dd20c6710fcd9574dcb65cdebd371f4378e678b5cd280420a3aaf14bc48829910e80d111fcdd5c766e4f5e0e4546416e0db0ea389ab13ada097110fc1c79b4807bac69f4fd9cb60c162bf17f5b093d9b5be216ca13816d002e380da8298f2ce1b2f45aa901af159c2c2f491bdb22bbc3fe789451c386b182885df03db451a179332b2e7bb9dc20091371eb6a195bcfe8a530572c89493fb9cf7fc9bf3e226863539abd6974acc51d3c7f92e0c3bc1cd80475",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "0ecff438c8febf356e04d86a981b1a50",
+                "Version": 3,
+                "CertificateType": "Intermediate",
+                "IsCodeSigning": false,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "e9d38360b914c8863f6cba3ee58764d3",
+                  "SHA1": "4cba8eae47b6bf76f20b3504b98b8f062694a89b",
+                  "SHA256": "88901d86a4cc1f1bb193d08e1fb63d27452e63f83e228c657ab1a92e4ade3976",
+                  "SHA384": "e9f2a75334a9e336c5a4712eadee88d0374b0fdc273262f4e65c9040ad2793067cc076696db5279a478773485e285652"
+                }
+              },
+              {
+                "Subject": "C=FR, ST=Loire Atlantique, L=Orvault, O=Adlice, CN=Adlice",
+                "ValidFrom": "2015-03-31 00:00:00",
+                "ValidTo": "2018-06-28 12:00:00",
+                "Signature": "a4bafdba971f567a594df75a625b1ccac8e43187e912b686860c913cda04b79cadc1600da469632da14c043c4ddbbbf97a2ca6ed3917a4008fe5da5f9de201ba549b7875a382030a2048f6beec1f5bca4c841eea6962fde84c997153b72765f874eb02d97030b285435cc094835bdc09edf4138d6da6a5820730a8e09814baeebc7d66f3d24e69eae4c5a395035588f00129f5a650d82a8a430c4769d29220ce6e9a01efeee0219511dbd61c838422eb83fea6ad1b5ccec2cbea86d246d57789af690ad043e0315fd4a42151a7e7dbf67a94594382b14c20259cf02ad2248f9732b2c18271a0f8769a7d6962f58ce97e325e4d3d76a50327ddb41c317a179d3d",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": false,
+                "SerialNumber": "06e284cd38ee15623095dcbd38e65f9b",
+                "Version": 3,
+                "CertificateType": "Leaf (Code Signing)",
+                "IsCodeSigning": true,
+                "IsCA": false,
+                "TBS": {
+                  "MD5": "c59dbb2c1f1fc7067e1ef6ce01cfff45",
+                  "SHA1": "8af7d1546e6993884df99015e2b8a320beb6e154",
+                  "SHA256": "c6ada9a4b9002f518b6664d3ab411825c795b67fbfa77a4fb43a368bb15da666",
+                  "SHA384": "4c16ed6bb5a3fffd520d8e429e5bedfc20d7ba7f5518facdbe2e93b2a72d0b188019b91fd96bf01caceb280f2012d915"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance EV Root CA",
+                "ValidFrom": "2011-04-15 19:45:33",
+                "ValidTo": "2021-04-15 19:55:33",
+                "Signature": "208cc159ed6f9c6b2dc14a3e751d454c41501cbd80ead9b0928b062a133f53169e56396a8a63b6782479f57db8b947a10a96c2f6cbbda2669f06e1acd279090efd3cdcac020c70af3f1bec787ed4eb4b056026d973619121edb06863e09712ab6fa012edd99fd2da273cb3e456f9d1d4810f71bd427ca689dccdd5bd95a2abf193117de8ac3129a85d6670419dfc75c9d5b31a392ad08505508bac91cac493cb71a59da4946f580cfa6e20c40831b5859d7e81f9d23dca5b18856c0a86ec22091ba574344f7f28bc954aab1db698b05d09a477767eefa78e5d84f61824cbd16da6c3a19cc2107580ff9d32fde6cf433a82f7ce8fe1722a9b62b75fed951a395c2f946d48b7015f332fbbdc2d73348904420a1c8b79f9a3fa17effaa11a10dfe0b2c195eb5c0c05973b353e18884ddb6cbf24898dc8bdd89f7b393a24a0d5dfd1f34a1a97f6a66f7a1fb090a9b3ac013991d361b764f13e573803afce7ad2b590f5aedc3999d5b63c97eda6cb16c77d6b2a4c9094e64c54fd1ecd20ecce689c8758e96160beeb0ec9d5197d9fe978bd0eac2175078fa96ee08c6a2a6b9ce3e765bcbc2d3c6ddc04dc67453632af0481bca8006e614c95c55cd48e8e9f2fc13274bdbd11650307cdefb75e0257da86d41a2834af8849b2cfa5dd82566f68aa14e25954feffeaeeefea9270226081e32523c09fcc0f49b235aa58c33ac3d9169410",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "61204db4000000000027",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": false,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "8e3ffc222fbcebdbb8b23115ab259be7",
+                  "SHA1": "ee20bff28ffe13be731c294c90d6ded5aae0ec0e",
+                  "SHA256": "59826b69bc8c28118c96323b627da59aaca0b142cc5d8bad25a8fcfd399aa821",
+                  "SHA384": "f2dab7e56a33298654924501499487f6ba72c7d9477476a186e1ed7a9be031fade0e35ac09eff5e56bbbab95ae5374e7"
+                }
+              },
+              {
+                "Subject": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance Code Signing CA,1",
+                "ValidFrom": "2011-02-11 12:00:00",
+                "ValidTo": "2026-02-10 12:00:00",
+                "Signature": "49eb7c60beaeefc97cb3c5ba4b64df1669e286fa29d9de98857d406626332f4455aaaa90e935700a34bed3ae542e8e6500d67a32203e6c26b898a939b1bc95c7aae9f5ee4666c6b3e812f8b3979dff74588234997550ac448fe892ce7d8b0f3196c7dcd31130987416c6e56b4576a39401cd33007a48f66f8631c9562b3322d5f801b644ce8cb4ca88d2e416e3e7f6e23ee109c09d7943437f555c05ad9310c62c0d6bc09eea78e5d277d6b8da9a987fba4c922b9dbda488b1ddafc34cd2979b03c6ae5f1b440f333715e3cbff2f56d316a45b55679da2cadb346c0c734ab57ba4b6b3e935027870ec007acbfc4b4f2236bb1484c98f91dd0f3c758cca0b88e7",
+                "SignatureAlgorithmOID": "1.2.840.113549.1.1.5",
+                "IsCertificateAuthority": true,
+                "SerialNumber": "02c4d1e58a4a680c568da3047e7e4d5f",
+                "Version": 3,
+                "CertificateType": "CA",
+                "IsCodeSigning": true,
+                "IsCA": true,
+                "TBS": {
+                  "MD5": "829995f702421dea833a24fb2c7f4442",
+                  "SHA1": "1d7e838accd498c2e5ba9373af819ec097bb955c",
+                  "SHA256": "92914d016cc46e125e50c4bd0bd7f72db87eed4ba68f3c589b4e86aa563108db",
+                  "SHA384": "dbb72e38c3bc17b08aa00535ebd48502058ce6ecfd24bd4dd45c7b33e3d523510a4a649d86dfc77436c58754bd0754ea"
+                }
+              }
+            ],
+            "Signer": [
+              {
+                "SerialNumber": "06e284cd38ee15623095dcbd38e65f9b",
+                "Issuer": "C=US, O=DigiCert Inc, OU=www.digicert.com, CN=DigiCert High Assurance Code Signing CA,1",
+                "Version": 1
+              }
+            ]
+          }
+        ],
+        "Authentihash": {
+          "MD5": "05a8e40ca699688e768a230216655992",
+          "SHA1": "b7ea0d3897e87a7f6380c4729cf6c891d1acaec5",
+          "SHA256": "ecb07e72d6937ab5cee4a7b8176351cbdefa3e0b230a5973b8fc6c2f2c02f30d"
+        },
+        "RichPEHeaderHash": {
+          "MD5": "dbef636f51139c6fd5ad771c12218bea",
+          "SHA1": "b53d0812dd975181b732c0e5c5984d0e834c6a0c",
+          "SHA256": "b133af91c881664a794e081e8176beb0a13aac9bd2784fdf11c0eb3dba1fa451"
+        },
+        "LoadsDespiteHVCI": "UNKNOWN"
       }
     ]
   },
