@@ -2039,5 +2039,56 @@
       "removed": [],
       "status_changes": []
     }
+  },
+  {
+    "date": "27-10-2026",
+    "data": {
+      "added": [
+        {
+          "name": "virtio_rng.sys",
+          "hash": "1f0ed057b98e7242b7a3a23fbfb05a4b9d29726132705948ce70045369152f10",
+          "driver_id": "1757aa0e-0e7c-477a-b224-a73ce07b9e3b",
+          "source": "loldrivers"
+        },
+        {
+          "name": "tmnciesc.sys",
+          "hash": "a2071d1ed96b11763635580064d44fc9d14d1fe40cf36cd8f4e46aa2d084ab47",
+          "driver_id": "2b1e1095-5119-4419-9790-4206b23be0b5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "btfilter.sys",
+          "hash": "415bfdd549ce7f0b0011fe45c7330e0c44935f1bbdcedd64246a9fdfb921196f",
+          "driver_id": "7d4439c5-1ee3-4297-99ea-bb7eab3c256c",
+          "source": "loldrivers"
+        },
+        {
+          "name": "vsapint.sys",
+          "hash": "0e674d7e96e2e2e33ca96a5537cd4dd9db247249131ac91c44ebe9764efbfffe",
+          "driver_id": "8b8bbbfe-798b-47bf-991b-21a0a0becef3",
+          "source": "loldrivers"
+        },
+        {
+          "name": "rcflctrl.sys",
+          "hash": "04bdcd0c70fb07e1c551be3078cf0e82cf53dd4dba3752b74e5db4a715933d16",
+          "driver_id": "a7d2a088-b00b-4f5c-96ca-7a98070dddd5",
+          "source": "loldrivers"
+        },
+        {
+          "name": "tosrfec.sys",
+          "hash": "01aa894cb84ca218e4e54f87626aac7ce16755a18b62de8f406eae522846e4d7",
+          "driver_id": "afbc0243-ce03-4f2b-ace5-0a721297aaf2",
+          "source": "loldrivers"
+        },
+        {
+          "name": "vdk.sys",
+          "hash": "1ca23e5a2a57522fbca4325eb0cc4c5b4f77610f3557862b7b6548efe2dff26b",
+          "driver_id": "d009b5bf-d999-4d0b-a4be-1bcbe1effc15",
+          "source": "loldrivers"
+        }
+      ],
+      "removed": [],
+      "status_changes": []
+    }
   }
 ]
